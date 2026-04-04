@@ -1,49 +1,49 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AstroPotok | Астрология, медитации и консультации</title>
+  <title>AstroPotok | Астрология, медитации, упайи и консультации</title>
   <meta name="description" content="Астрология простыми словами: консультации, медитации, упайи для планет, разбор жизненных периодов, отношения, деньги и энергия." />
   <style>
     :root{
-      --bg:#05060b;
-      --bg2:#0b0d17;
+      --bg:#06070d;
+      --bg2:#0b0d18;
       --card:rgba(255,255,255,.06);
-      --card-2:rgba(255,255,255,.08);
-      --line:rgba(255,215,140,.16);
+      --card-2:rgba(255,255,255,.09);
+      --line:rgba(255,215,140,.18);
       --gold:#d8ad4b;
       --gold2:#f2d58e;
-      --gold3:#fff0c9;
+      --gold3:#fff3cf;
       --text:#ffffff;
-      --muted:#cfcfd8;
-      --muted2:#9ea3b5;
-      --purple:rgba(151,111,255,.18);
-      --pink:rgba(255,119,201,.12);
+      --muted:#d5d5de;
+      --muted2:#a8acbc;
+      --purple:rgba(145,110,255,.16);
+      --pink:rgba(255,119,201,.10);
       --vk:#4C75A3;
       --vk2:#6f92bc;
       --shadow:0 24px 70px rgba(0,0,0,.48);
       --radius:26px;
-      --max:1200px;
+      --max:1220px;
     }
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family:Arial,sans-serif;
       color:var(--text);
       background:
-        radial-gradient(circle at 15% 15%, rgba(216,173,75,.08), transparent 18%),
-        radial-gradient(circle at 85% 12%, rgba(151,111,255,.08), transparent 18%),
-        radial-gradient(circle at 82% 78%, rgba(255,119,201,.07), transparent 20%),
+        radial-gradient(circle at 10% 15%, rgba(216,173,75,.08), transparent 18%),
+        radial-gradient(circle at 85% 10%, rgba(145,110,255,.08), transparent 18%),
+        radial-gradient(circle at 78% 75%, rgba(255,119,201,.08), transparent 18%),
         linear-gradient(180deg, #070811 0%, #05060b 100%);
-      line-height:1.55;
+      line-height:1.6;
       overflow-x:hidden;
+      font-family: Georgia, "Times New Roman", serif;
       position:relative;
     }
 
-    a{color:inherit;text-decoration:none}
+    a{text-decoration:none;color:inherit}
     .container{
       width:min(var(--max), calc(100% - 32px));
       margin:0 auto;
@@ -78,13 +78,12 @@
       opacity:.7;
     }
     @keyframes twinkle{
-      0%,100%{opacity:.15; transform:scale(1)}
+      0%,100%{opacity:.12; transform:scale(1)}
       50%{opacity:1; transform:scale(1.8)}
     }
 
     .nebula{
       position:fixed;
-      inset:auto;
       width:380px;
       height:380px;
       border-radius:50%;
@@ -102,7 +101,7 @@
     .nebula.n2{
       top:18%;
       right:8%;
-      background:radial-gradient(circle, rgba(151,111,255,.28), transparent 60%);
+      background:radial-gradient(circle, rgba(145,110,255,.28), transparent 60%);
       animation-duration:12s;
     }
     .nebula.n3{
@@ -122,7 +121,7 @@
       top:0;
       z-index:50;
       backdrop-filter:blur(14px);
-      background:rgba(8,9,16,.62);
+      background:rgba(8,9,16,.64);
       border-bottom:1px solid rgba(255,255,255,.06);
     }
     .topbar-inner{
@@ -132,6 +131,7 @@
       gap:16px;
       padding:14px 0;
     }
+
     .logo{
       display:flex;
       align-items:center;
@@ -145,7 +145,7 @@
       position:relative;
       background:
         radial-gradient(circle at 30% 30%, rgba(255,255,255,.18), transparent 30%),
-        linear-gradient(135deg, rgba(216,173,75,.28), rgba(151,111,255,.10));
+        linear-gradient(135deg, rgba(216,173,75,.28), rgba(145,110,255,.10));
       border:1px solid rgba(242,213,142,.22);
       box-shadow:
         0 0 0 1px rgba(255,255,255,.03) inset,
@@ -161,15 +161,16 @@
     }
     .logo-mark::before{inset:9px}
     .logo-mark::after{inset:16px}
+
     .logo-text{
       display:flex;
       flex-direction:column;
       line-height:1.05;
     }
     .logo-title{
-      font-size:20px;
+      font-size:21px;
       font-weight:700;
-      letter-spacing:.5px;
+      letter-spacing:.4px;
     }
     .logo-title span{color:var(--gold2)}
     .logo-sub{
@@ -178,6 +179,7 @@
       letter-spacing:.20em;
       text-transform:uppercase;
       margin-top:4px;
+      font-family: Arial, sans-serif;
     }
 
     .nav{
@@ -185,6 +187,7 @@
       gap:18px;
       flex-wrap:wrap;
       align-items:center;
+      font-family: Arial, sans-serif;
     }
     .nav a{
       font-size:14px;
@@ -197,6 +200,7 @@
       display:flex;
       gap:10px;
       align-items:center;
+      font-family: Arial, sans-serif;
     }
 
     /* BUTTONS */
@@ -212,6 +216,7 @@
       cursor:pointer;
       transition:.25s ease;
       text-align:center;
+      font-family: Arial, sans-serif;
     }
     .btn-primary{
       color:#16120a;
@@ -244,6 +249,7 @@
       transform:translateY(-2px) scale(1.01);
       box-shadow:0 14px 34px rgba(76,117,163,.34);
     }
+
     .pulse{animation:pulseGlow 2.4s infinite ease-in-out}
     @keyframes pulseGlow{
       0%,100%{box-shadow:0 0 0 rgba(216,173,75,0), 0 0 18px rgba(216,173,75,.10)}
@@ -274,44 +280,59 @@
       font-size:13px;
       margin-bottom:18px;
       box-shadow:0 0 18px rgba(216,173,75,.08);
+      font-family: Arial, sans-serif;
     }
     h1{
       margin:0 0 18px;
-      font-size:clamp(42px, 6vw, 78px);
+      font-size:clamp(42px, 6vw, 76px);
       line-height:1.02;
       letter-spacing:-.03em;
       max-width:860px;
+      font-weight:700;
     }
     .hero p{
       margin:0 0 28px;
       color:var(--muted);
-      font-size:20px;
+      font-size:21px;
       max-width:760px;
     }
+
     .hero-cta{
       display:flex;
       gap:12px;
       flex-wrap:wrap;
       margin-bottom:22px;
     }
+
     .hero-points{
-      display:flex;
+      display:grid;
+      grid-template-columns:repeat(5, 1fr);
       gap:12px;
-      flex-wrap:wrap;
+      margin-top:8px;
     }
-    .point{
-      padding:10px 14px;
-      border-radius:999px;
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.06);
+
+    .point-link{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:64px;
+      padding:12px 14px;
+      border-radius:18px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
       color:#ececf5;
       font-size:14px;
+      text-align:center;
       transition:.3s ease;
+      box-shadow:0 10px 24px rgba(0,0,0,.22);
+      font-family: Arial, sans-serif;
+      font-weight:700;
     }
-    .point:hover{
-      border-color:rgba(242,213,142,.22);
-      box-shadow:0 0 16px rgba(216,173,75,.12);
-      transform:translateY(-2px);
+    .point-link:hover{
+      transform:translateY(-4px);
+      border-color:rgba(242,213,142,.24);
+      box-shadow:0 16px 30px rgba(0,0,0,.30), 0 0 18px rgba(216,173,75,.12);
+      color:#fff6de;
     }
 
     .hero-card{
@@ -329,7 +350,7 @@
       inset:0;
       background:
         radial-gradient(circle at 20% 20%, rgba(242,213,142,.16), transparent 26%),
-        radial-gradient(circle at 80% 80%, rgba(151,111,255,.10), transparent 28%);
+        radial-gradient(circle at 80% 80%, rgba(145,110,255,.10), transparent 28%);
       pointer-events:none;
     }
     .mini-label{
@@ -338,6 +359,7 @@
       margin-bottom:12px;
       position:relative;
       z-index:1;
+      font-family: Arial, sans-serif;
     }
     .mock-title{
       font-size:26px;
@@ -351,6 +373,7 @@
       font-size:14px;
       position:relative;
       z-index:1;
+      font-family: Arial, sans-serif;
     }
     .mock-list{
       margin-top:18px;
@@ -366,6 +389,7 @@
       border:1px solid rgba(255,255,255,.07);
       color:#f3f3fa;
       transition:.3s ease;
+      font-family: Arial, sans-serif;
     }
     .mock-item:hover{
       transform:translateX(4px);
@@ -377,7 +401,7 @@
     section{padding:48px 0}
     .section-head{
       text-align:center;
-      max-width:880px;
+      max-width:900px;
       margin:0 auto 30px;
     }
     .section-head h2{
@@ -388,9 +412,10 @@
       margin:0;
       font-size:18px;
       color:var(--muted);
+      font-family: Arial, sans-serif;
     }
 
-    .grid-4,.grid-3,.grid-2,.faq-grid,.pricing,.contact-grid,.ritual-grid,.med-grid,.planet-grid,.consult-grid{
+    .grid-4,.grid-3,.grid-2,.faq-grid,.pricing,.contact-grid,.med-grid,.planet-grid,.consult-grid{
       display:grid;
       gap:18px;
     }
@@ -400,7 +425,6 @@
     .faq-grid{grid-template-columns:repeat(2,1fr)}
     .pricing{grid-template-columns:1fr 1fr}
     .contact-grid{grid-template-columns:1fr 1fr}
-    .ritual-grid{grid-template-columns:repeat(3,1fr)}
     .med-grid{grid-template-columns:repeat(3,1fr)}
     .planet-grid{grid-template-columns:repeat(3,1fr)}
     .consult-grid{grid-template-columns:repeat(3,1fr)}
@@ -425,7 +449,7 @@
       position:absolute;
       inset:-1px;
       border-radius:inherit;
-      background:linear-gradient(135deg, rgba(242,213,142,.24), transparent 30%, transparent 70%, rgba(151,111,255,.14));
+      background:linear-gradient(135deg, rgba(242,213,142,.24), transparent 30%, transparent 70%, rgba(145,110,255,.14));
       opacity:.65;
       pointer-events:none;
     }
@@ -458,46 +482,10 @@
       font-size:16px;
       position:relative;
       z-index:1;
+      font-family: Arial, sans-serif;
     }
 
     .highlight{color:var(--gold2)}
-
-    .niches{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:16px;
-    }
-    .niche-pill{
-      position:relative;
-      padding:18px 16px;
-      border-radius:18px;
-      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      border:1px solid rgba(255,255,255,.08);
-      text-align:center;
-      font-weight:700;
-      color:#f8f8ff;
-      overflow:hidden;
-      transition:.35s ease;
-      box-shadow:0 10px 25px rgba(0,0,0,.28);
-    }
-    .niche-pill::before{
-      content:"";
-      position:absolute;
-      inset:auto -10% -80% -10%;
-      height:130%;
-      background:radial-gradient(circle, rgba(242,213,142,.22), transparent 55%);
-      opacity:.6;
-      transition:.35s ease;
-    }
-    .niche-pill:hover{
-      transform:translateY(-5px) scale(1.01);
-      border-color:rgba(242,213,142,.25);
-      box-shadow:0 16px 34px rgba(0,0,0,.36),0 0 26px rgba(216,173,75,.14);
-    }
-    .niche-pill:hover::before{
-      transform:translateY(-18px);
-      opacity:.95;
-    }
 
     .featured{
       background:linear-gradient(180deg, rgba(216,173,75,.12), rgba(255,255,255,.05));
@@ -513,6 +501,7 @@
     .price-note{
       color:var(--muted);
       margin-bottom:18px;
+      font-family: Arial, sans-serif;
     }
     .list{
       display:grid;
@@ -521,6 +510,7 @@
       color:#ececf4;
       position:relative;
       z-index:1;
+      font-family: Arial, sans-serif;
     }
     .list div{
       padding-left:18px;
@@ -543,6 +533,7 @@
       font-weight:700;
       position:relative;
       z-index:1;
+      font-family: Arial, sans-serif;
     }
 
     .tag{
@@ -556,10 +547,51 @@
       margin-bottom:12px;
       position:relative;
       z-index:1;
+      font-family: Arial, sans-serif;
+      font-weight:700;
     }
 
     .about-box{
       background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+    }
+
+    /* ACCORDION */
+    .accordion{
+      margin-top:16px;
+      position:relative;
+      z-index:1;
+      font-family: Arial, sans-serif;
+    }
+    .accordion-btn{
+      width:100%;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.04);
+      color:#fff;
+      cursor:pointer;
+      text-align:left;
+      font-weight:700;
+      transition:.25s;
+      font-family: Arial, sans-serif;
+    }
+    .accordion-btn:hover{
+      border-color:rgba(242,213,142,.20);
+      box-shadow:0 0 14px rgba(216,173,75,.10);
+    }
+    .accordion-content{
+      margin-top:10px;
+      padding:14px;
+      border-radius:14px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.06);
+      color:var(--muted);
+      display:none;
+      font-size:15px;
+      line-height:1.65;
+    }
+    .accordion-content.open{
+      display:block;
     }
 
     .cta-box{
@@ -569,7 +601,7 @@
       align-items:center;
       padding:30px;
       border-radius:30px;
-      background:linear-gradient(135deg, rgba(216,173,75,.16), rgba(151,111,255,.08));
+      background:linear-gradient(135deg, rgba(216,173,75,.16), rgba(145,110,255,.08));
       border:1px solid rgba(242,213,142,.22);
     }
     .cta-box::before{
@@ -595,6 +627,7 @@
       font-size:18px;
       position:relative;
       z-index:1;
+      font-family: Arial, sans-serif;
     }
     .cta-actions{
       display:flex;
@@ -635,6 +668,7 @@
       color:#a8aecd;
       text-align:center;
       font-size:14px;
+      font-family: Arial, sans-serif;
     }
 
     .reveal{
@@ -648,7 +682,7 @@
     }
 
     @media (max-width:1024px){
-      .hero-grid,.grid-4,.grid-3,.grid-2,.niches,.faq-grid,.pricing,.contact-grid,.ritual-grid,.med-grid,.planet-grid,.consult-grid,.cta-box{
+      .hero-grid,.grid-4,.grid-3,.grid-2,.faq-grid,.pricing,.contact-grid,.med-grid,.planet-grid,.consult-grid,.cta-box,.hero-points{
         grid-template-columns:1fr;
       }
       .nav{display:none}
@@ -697,7 +731,7 @@
       </nav>
 
       <div class="header-actions">
-        <a class="btn btn-secondary" href="https://vk.com/gkvadrat" target="_blank" rel="noopener noreferrer">VK</a>
+        <a class="btn btn-secondary" href="https://vk.com/astronumhub" target="_blank" rel="noopener noreferrer">VK</a>
         <a class="btn btn-primary pulse" href="https://t.me/ValentinaGavrilovich" target="_blank" rel="noopener noreferrer">Telegram</a>
       </div>
     </div>
@@ -717,16 +751,16 @@
 
           <div class="hero-cta">
             <a class="btn btn-primary" href="https://t.me/ValentinaGavrilovich" target="_blank" rel="noopener noreferrer">Получить разбор</a>
-            <a class="btn btn-vk" href="https://vk.com/gkvadrat" target="_blank" rel="noopener noreferrer">Записаться в VK</a>
+            <a class="btn btn-vk" href="https://vk.com/astronumhub" target="_blank" rel="noopener noreferrer">Записаться в VK</a>
             <a class="btn btn-secondary" href="#meditations">Посмотреть медитации</a>
           </div>
 
           <div class="hero-points">
-            <div class="point">Деньги</div>
-            <div class="point">Отношения</div>
-            <div class="point">Энергия</div>
-            <div class="point">Периоды жизни</div>
-            <div class="point">Практики и рекомендации</div>
+            <a class="point-link" href="#money">Деньги</a>
+            <a class="point-link" href="#love">Отношения</a>
+            <a class="point-link" href="#energy">Энергия</a>
+            <a class="point-link" href="#meditations">Медитации</a>
+            <a class="point-link" href="#upayi">Упайи</a>
           </div>
         </div>
 
@@ -745,33 +779,79 @@
       </div>
     </section>
 
-    <section id="pain">
+    <section id="money">
       <div class="container">
         <div class="section-head reveal">
-          <h2>Ты можешь узнать себя в этом</h2>
-          <p>Иногда человек чувствует, что старается, но что-то словно не пускает. И это может быть не случайность, а влияние периодов и планет.</p>
+          <h2>Денежный поток</h2>
+          <p>Иногда деньги не идут не потому, что человек мало старается, а потому что внутри много напряжения, страха, усталости или включены сложные периоды.</p>
         </div>
-
-        <div class="grid-4">
+        <div class="grid-3">
           <div class="card card-glow reveal">
             <div class="icon">💰</div>
-            <h3>Нет денег</h3>
-            <p>Ты много стараешься, но поток будто закрыт. Приходится бороться за каждую возможность.</p>
+            <h3>Почему не идут деньги</h3>
+            <p>Ты можешь много делать, но чувствовать, что результата всё равно недостаточно или всё уходит слишком тяжело.</p>
           </div>
+          <div class="card card-glow reveal">
+            <div class="icon">🌕</div>
+            <h3>Что может влиять</h3>
+            <p>Внутренние страхи, слабая вера в себя, повторяющиеся сценарии, напряжённые периоды и влияние планет.</p>
+          </div>
+          <div class="card card-glow reveal">
+            <div class="icon">✨</div>
+            <h3>Что даёт разбор</h3>
+            <p>Понимание, где именно закрывается поток, и какие практики могут помочь мягко его раскрыть.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="love">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Отношения и чувства</h2>
+          <p>Если отношения не складываются или повторяются похожие болезненные сценарии, это тоже можно рассматривать глубже.</p>
+        </div>
+        <div class="grid-3">
           <div class="card card-glow reveal">
             <div class="icon">💔</div>
-            <h3>Проблемы в отношениях</h3>
-            <p>Не получается построить гармонию, повторяются похожие сценарии, боль и разочарование.</p>
+            <h3>Повторяющиеся истории</h3>
+            <p>Ты можешь замечать, что в любви всё идёт по одному кругу: ожидание, боль, разочарование, дистанция.</p>
           </div>
           <div class="card card-glow reveal">
+            <div class="icon">🌹</div>
+            <h3>Влияние Венеры и Луны</h3>
+            <p>Эти темы часто связаны с женской энергией, самоценностью, чувствами, мягкостью и внутренней безопасностью.</p>
+          </div>
+          <div class="card card-glow reveal">
+            <div class="icon">🔮</div>
+            <h3>Что даёт консультация</h3>
+            <p>Понимание причин, внутренних узлов и рекомендаций, которые помогают проживать тему легче и осознаннее.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="energy">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Энергия и внутреннее состояние</h2>
+          <p>Усталость, тревога, ощущение пустоты или потери себя — это не всегда “просто период”, иногда важно посмотреть глубже.</p>
+        </div>
+        <div class="grid-3">
+          <div class="card card-glow reveal">
             <div class="icon">⚡</div>
-            <h3>Нет энергии</h3>
-            <p>Усталость, тревога, внутренний шум, ощущение, что сил ни на что не хватает.</p>
+            <h3>Нет сил</h3>
+            <p>Кажется, что ресурса мало, внутри напряжение, а даже обычные дела требуют слишком много энергии.</p>
           </div>
           <div class="card card-glow reveal">
             <div class="icon">🌫</div>
-            <h3>Потеря пути</h3>
-            <p>Есть ощущение, что жизнь идёт не туда, а ты не понимаешь, где твой настоящий вектор.</p>
+            <h3>Тревога и перегруз</h3>
+            <p>Когда ум не выключается, тело устало, а душа будто оторвана от внутренней опоры.</p>
+          </div>
+          <div class="card card-glow reveal">
+            <div class="icon">🧘</div>
+            <h3>Что помогает</h3>
+            <p>Медитации, мягкие практики, работа с Луной и понимание того, какой именно период ты проживаешь сейчас.</p>
           </div>
         </div>
       </div>
@@ -817,44 +897,93 @@
       <div class="container">
         <div class="section-head reveal">
           <h2>Медитации</h2>
-          <p>Медитации помогают не только успокоиться, но и мягко перестроить внутреннее состояние, которое влияет на внешние события.</p>
+          <p>Здесь не просто названия. Я уже добавила наполненные карточки, которые можно открыть и прочитать прямо на сайте.</p>
         </div>
 
         <div class="med-grid">
           <div class="card card-glow reveal">
-            <div class="tag">Практика</div>
-            <h3>Медитация на деньги</h3>
-            <p>Для работы с чувством нехватки, внутренним напряжением и закрытым денежным потоком.</p>
+            <div class="tag">Медитация</div>
+            <h3>На деньги</h3>
+            <p>Для работы с ощущением нехватки, внутреннего страха и напряжения вокруг денег.</p>
+            <div class="accordion">
+              <button class="accordion-btn" type="button">Открыть медитацию</button>
+              <div class="accordion-content">
+                Закрой глаза. Сделай несколько спокойных вдохов. Представь перед собой мягкий золотой поток света.
+                Этот поток не давит, а gently наполняет тебя ощущением безопасности, достатка и доверия жизни.
+                Повтори мысленно: “Я разрешаю себе принимать. Я открываюсь денежному потоку. Я достойна изобилия”.
+                Посиди в этом состоянии 3–5 минут.
+              </div>
+            </div>
           </div>
 
           <div class="card card-glow reveal">
-            <div class="tag">Практика</div>
-            <h3>Медитация на уверенность</h3>
-            <p>Помогает вернуть внутреннюю опору, спокойствие и ощущение собственной ценности.</p>
+            <div class="tag">Медитация</div>
+            <h3>На уверенность</h3>
+            <p>Помогает вернуть внутреннюю опору, спокойствие и ощущение своей ценности.</p>
+            <div class="accordion">
+              <button class="accordion-btn" type="button">Открыть медитацию</button>
+              <div class="accordion-content">
+                Представь, что внутри твоего сердца загорается мягкий золотой свет. Он становится шире и теплее.
+                Этот свет — твоя внутренняя сила. С каждым вдохом он заполняет всё тело.
+                Повтори: “Я имею право быть собой. Я могу опираться на себя. Я выбираю спокойную силу”.
+              </div>
+            </div>
           </div>
 
           <div class="card card-glow reveal">
-            <div class="tag">Практика</div>
-            <h3>Медитация на очищение энергии</h3>
-            <p>Для отпускания тяжёлых состояний, старых эмоций и ощущения внутренней перегрузки.</p>
+            <div class="tag">Медитация</div>
+            <h3>На очищение энергии</h3>
+            <p>Для отпускания тяжёлых состояний, старых эмоций и накопленного внутреннего напряжения.</p>
+            <div class="accordion">
+              <button class="accordion-btn" type="button">Открыть медитацию</button>
+              <div class="accordion-content">
+                Представь поток лунного серебристого света, который мягко проходит сверху вниз через всё тело.
+                Он смывает усталость, тревогу, тяжесть и внутренний шум.
+                Выдыхай всё лишнее. Повтори: “Я отпускаю старое. Я очищаюсь. Я возвращаюсь к себе”.
+              </div>
+            </div>
           </div>
 
           <div class="card card-glow reveal">
-            <div class="tag">Практика</div>
-            <h3>Медитация на женскую энергию</h3>
-            <p>Для мягкости, внутренней гармонии, принятия себя и раскрытия внутреннего состояния.</p>
+            <div class="tag">Медитация</div>
+            <h3>На женскую энергию</h3>
+            <p>Для мягкости, внутренней гармонии и возвращения к чувствованию себя.</p>
+            <div class="accordion">
+              <button class="accordion-btn" type="button">Открыть медитацию</button>
+              <div class="accordion-content">
+                Представь вокруг себя мягкое розово-золотое сияние. Оно наполняет тело нежностью и спокойствием.
+                В этом свете не нужно ничего доказывать. Можно просто быть.
+                Повтори: “Я принимаю себя. Я раскрываю мягкость. Я разрешаю себе чувствовать”.
+              </div>
+            </div>
           </div>
 
           <div class="card card-glow reveal">
-            <div class="tag">Практика</div>
-            <h3>Медитация на внутреннюю силу</h3>
-            <p>Подходит в моменты потери опоры, сомнений и ощущения, что ты “застряла”.</p>
+            <div class="tag">Медитация</div>
+            <h3>На внутреннюю силу</h3>
+            <p>Подходит в моменты потери опоры, сомнений и ощущения, что ты застряла.</p>
+            <div class="accordion">
+              <button class="accordion-btn" type="button">Открыть медитацию</button>
+              <div class="accordion-content">
+                Сфокусируйся на солнечном сплетении. Представь там золотое солнце.
+                Оно становится ярче с каждым вдохом. Это центр твоей силы.
+                Повтори: “Во мне есть сила. Я могу двигаться. Я не потеряна. Я возвращаюсь к своему пути”.
+              </div>
+            </div>
           </div>
 
           <div class="card card-glow reveal">
-            <div class="tag">Практика</div>
-            <h3>Медитация на отпускание прошлого</h3>
+            <div class="tag">Медитация</div>
+            <h3>На отпускание прошлого</h3>
             <p>Для тех, кто чувствует, что старые боли и события всё ещё влияют на настоящее.</p>
+            <div class="accordion">
+              <button class="accordion-btn" type="button">Открыть медитацию</button>
+              <div class="accordion-content">
+                Представь, что ты стоишь у реки, и в её поток мягко уходят старые эмоции, ожидания, обиды и тяжесть.
+                Ты не борешься с ними — ты отпускаешь.
+                Повтори: “Я благодарю прошлое и отпускаю его. Я выбираю жизнь здесь и сейчас”.
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -864,73 +993,86 @@
       <div class="container">
         <div class="section-head reveal">
           <h2>Упайи для планет</h2>
-          <p>Упайи — это мягкие духовные и практические действия, которые помогают гармонизировать влияние планет и проживать периоды легче.</p>
+          <p>Здесь не просто названия планет, а уже готовые краткие рекомендации, которые можно читать и использовать как ориентир.</p>
         </div>
 
         <div class="planet-grid">
           <div class="card card-glow reveal">
             <div class="tag">Луна</div>
-            <h3>Для спокойствия и эмоций</h3>
-            <p>Если много тревоги, слёз, эмоциональной нестабильности, внутренней незащищённости.</p>
+            <h3>Спокойствие и эмоции</h3>
+            <p>Если много тревоги, эмоциональной нестабильности, внутренней незащищённости.</p>
+            <div class="accordion">
+              <button class="accordion-btn" type="button">Открыть упайю</button>
+              <div class="accordion-content">
+                Практика для Луны: больше бережности к себе, режим сна, контакт с водой, светлая пища, медитации на спокойствие,
+                благодарность матери или женской линии рода, уменьшение внутренней спешки и перегруза.
+              </div>
+            </div>
           </div>
 
           <div class="card card-glow reveal">
             <div class="tag">Венера</div>
-            <h3>Для любви и гармонии</h3>
-            <p>Когда хочется наладить отношения, почувствовать ценность себя и раскрыть мягкую женскую энергию.</p>
+            <h3>Любовь и гармония</h3>
+            <p>Когда хочется наладить отношения, почувствовать ценность себя и раскрыть мягкую энергию.</p>
+            <div class="accordion">
+              <button class="accordion-btn" type="button">Открыть упайю</button>
+              <div class="accordion-content">
+                Практика для Венеры: забота о красоте пространства и тела, музыка, эстетика, мягкость в общении,
+                благодарность женской энергии, маленькие радости без чувства вины, отказ от грубости к себе.
+              </div>
+            </div>
           </div>
 
           <div class="card card-glow reveal">
             <div class="tag">Сатурн</div>
-            <h3>Для выхода из тяжёлого периода</h3>
-            <p>Если всё идёт медленно, жизнь давит, кажется, что вокруг ограничения, долг и внутренний холод.</p>
+            <h3>Выход из тяжёлого периода</h3>
+            <p>Если всё идёт медленно, жизнь давит, кажется, что вокруг ограничения и тяжесть.</p>
+            <div class="accordion">
+              <button class="accordion-btn" type="button">Открыть упайю</button>
+              <div class="accordion-content">
+                Практика для Сатурна: дисциплина без насилия, уважение к времени, помощь старшим, спокойное выполнение обязанностей,
+                терпение, внутреннее взросление, отказ от самоуничтожающих мыслей и суеты.
+              </div>
+            </div>
           </div>
 
           <div class="card card-glow reveal">
             <div class="tag">Юпитер</div>
-            <h3>Для роста и благополучия</h3>
+            <h3>Рост и благополучие</h3>
             <p>Для усиления мудрости, доверия жизни, благословений, возможностей и темы достатка.</p>
+            <div class="accordion">
+              <button class="accordion-btn" type="button">Открыть упайю</button>
+              <div class="accordion-content">
+                Практика для Юпитера: изучение духовных знаний, благодарность учителям, щедрость, честность,
+                уважение к традициям, развитие внутренней мудрости и доверия к жизни.
+              </div>
+            </div>
           </div>
 
           <div class="card card-glow reveal">
             <div class="tag">Марс</div>
-            <h3>Для силы и действий</h3>
-            <p>Если не хватает воли, решительности, энергии на движение и умения защищать свои границы.</p>
+            <h3>Сила и действие</h3>
+            <p>Если не хватает воли, решительности, энергии на движение и умения защищать границы.</p>
+            <div class="accordion">
+              <button class="accordion-btn" type="button">Открыть упайю</button>
+              <div class="accordion-content">
+                Практика для Марса: физическая активность, честность в желаниях, тренировка воли, умение говорить “нет”,
+                экологичное проявление силы, движение и решительность без агрессии к себе и миру.
+              </div>
+            </div>
           </div>
 
           <div class="card card-glow reveal">
             <div class="tag">Индивидуально</div>
-            <h3>Подбор упай по карте</h3>
+            <h3>Подбор по карте</h3>
             <p>На консультации можно подобрать рекомендации под твою личную ситуацию и активные периоды.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="transform">
-      <div class="container">
-        <div class="section-head reveal">
-          <h2>Что может измениться после разбора</h2>
-          <p>Консультация не “волшебная кнопка”, но она даёт ясность, понимание причин и ощущение, что ты больше не идёшь вслепую.</p>
-        </div>
-
-        <div class="ritual-grid">
-          <div class="card card-glow reveal">
-            <div class="icon">✨</div>
-            <h3>Появляется ясность</h3>
-            <p>Ты начинаешь понимать, почему происходят те или иные события и что с этим можно делать.</p>
-          </div>
-
-          <div class="card card-glow reveal">
-            <div class="icon">🌙</div>
-            <h3>Становится спокойнее</h3>
-            <p>Когда есть понимание периода и его смысла, уходит часть тревоги и внутреннего хаоса.</p>
-          </div>
-
-          <div class="card card-glow reveal">
-            <div class="icon">🪄</div>
-            <h3>Появляются действия</h3>
-            <p>Ты получаешь ориентиры: практики, упайи, направления, на что обратить внимание уже сейчас.</p>
+            <div class="accordion">
+              <button class="accordion-btn" type="button">Открыть пояснение</button>
+              <div class="accordion-content">
+                Общие рекомендации полезны как ориентир, но самый сильный эффект даёт индивидуальный подбор под твою карту,
+                жизненный период и конкретный запрос: деньги, отношения, здоровье, состояние, энергия или путь.
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -961,7 +1103,7 @@
       <div class="container">
         <div class="section-head reveal">
           <h2>Запись на консультацию</h2>
-          <p>Если чувствуешь отклик — напиши мне. Можно в Telegram или VK, как тебе удобнее.</p>
+          <p>Если чувствуешь отклик — напиши мне. На сайте несколько точек входа специально, чтобы было легче решиться и не откладывать.</p>
         </div>
 
         <div class="contact-grid">
@@ -977,7 +1119,7 @@
             <h3>Написать в VK</h3>
             <p>Если Telegram работает нестабильно, можно спокойно связаться со мной через VK.</p>
             <div class="contact-actions">
-              <a class="btn btn-vk" href="https://vk.com/gkvadrat" target="_blank" rel="noopener noreferrer">Открыть VK</a>
+              <a class="btn btn-vk" href="https://vk.com/astronumhub" target="_blank" rel="noopener noreferrer">Открыть VK</a>
             </div>
           </div>
         </div>
@@ -1002,7 +1144,7 @@
               <div>Помогает увидеть главную тему</div>
               <div>Даёт направление дальше</div>
             </div>
-            <a class="btn btn-secondary" href="https://vk.com/gkvadrat" target="_blank" rel="noopener noreferrer">Уточнить в VK</a>
+            <a class="btn btn-secondary" href="https://vk.com/astronumhub" target="_blank" rel="noopener noreferrer">Уточнить в VK</a>
           </div>
 
           <div class="card featured reveal">
@@ -1017,7 +1159,7 @@
               <div>Запись через Telegram или VK</div>
             </div>
             <a class="btn btn-primary" href="https://t.me/ValentinaGavrilovich" target="_blank" rel="noopener noreferrer">Записаться</a>
-            <div class="urgency">Я беру ограниченное количество консультаций, чтобы сохранять глубину и внимание к каждому человеку.</div>
+            <div class="urgency">Если внутри есть отклик — лучше не откладывать. Обычно такие решения чувствуются сразу.</div>
           </div>
         </div>
       </div>
@@ -1036,7 +1178,7 @@
 
           <div class="cta-actions">
             <a class="btn btn-primary pulse" href="https://t.me/ValentinaGavrilovich" target="_blank" rel="noopener noreferrer">Записаться в Telegram</a>
-            <a class="btn btn-vk" href="https://vk.com/gkvadrat" target="_blank" rel="noopener noreferrer">Записаться в VK</a>
+            <a class="btn btn-vk" href="https://vk.com/astronumhub" target="_blank" rel="noopener noreferrer">Записаться в VK</a>
           </div>
         </div>
       </div>
@@ -1076,12 +1218,12 @@
 
   <div class="sticky-contact">
     <a class="btn btn-primary sticky-btn pulse" href="https://t.me/ValentinaGavrilovich" target="_blank" rel="noopener noreferrer">Telegram</a>
-    <a class="btn btn-vk sticky-btn" href="https://vk.com/gkvadrat" target="_blank" rel="noopener noreferrer">VK</a>
+    <a class="btn btn-vk sticky-btn" href="https://vk.com/astronumhub" target="_blank" rel="noopener noreferrer">VK</a>
   </div>
 
   <footer class="footer">
     <div class="container">
-      AstroPotok • Астрология, медитации, упайи и консультации • Telegram: @ValentinaGavrilovich • VK: gkvadrat
+      AstroPotok • Астрология, медитации, упайи и консультации • Telegram: @ValentinaGavrilovich • VK: astronumhub
     </div>
   </footer>
 
@@ -1107,6 +1249,14 @@
       });
     }, { threshold: 0.12 });
     items.forEach(item => observer.observe(item));
+
+    // accordion
+    document.querySelectorAll('.accordion-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const content = btn.nextElementSibling;
+        content.classList.toggle('open');
+      });
+    });
   </script>
 </body>
-</html> 
+</html>
