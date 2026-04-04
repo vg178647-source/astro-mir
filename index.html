@@ -1,159 +1,1112 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Астрология судьбы</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AstroPotok | Астрология, медитации и консультации</title>
+  <meta name="description" content="Астрология простыми словами: консультации, медитации, упайи для планет, разбор жизненных периодов, отношения, деньги и энергия." />
+  <style>
+    :root{
+      --bg:#05060b;
+      --bg2:#0b0d17;
+      --card:rgba(255,255,255,.06);
+      --card-2:rgba(255,255,255,.08);
+      --line:rgba(255,215,140,.16);
+      --gold:#d8ad4b;
+      --gold2:#f2d58e;
+      --gold3:#fff0c9;
+      --text:#ffffff;
+      --muted:#cfcfd8;
+      --muted2:#9ea3b5;
+      --purple:rgba(151,111,255,.18);
+      --pink:rgba(255,119,201,.12);
+      --vk:#4C75A3;
+      --vk2:#6f92bc;
+      --shadow:0 24px 70px rgba(0,0,0,.48);
+      --radius:26px;
+      --max:1200px;
+    }
 
-<style>
-body{
-margin:0;
-font-family:Arial;
-background:black;
-color:white;
-text-align:center;
-overflow-x:hidden;
-}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 15% 15%, rgba(216,173,75,.08), transparent 18%),
+        radial-gradient(circle at 85% 12%, rgba(151,111,255,.08), transparent 18%),
+        radial-gradient(circle at 82% 78%, rgba(255,119,201,.07), transparent 20%),
+        linear-gradient(180deg, #070811 0%, #05060b 100%);
+      line-height:1.55;
+      overflow-x:hidden;
+      position:relative;
+    }
 
-/* 🌌 ЗВЕЗДЫ */
-.stars{
-position:fixed;
-width:100%;
-height:100%;
-z-index:-1;
-}
+    a{color:inherit;text-decoration:none}
+    .container{
+      width:min(var(--max), calc(100% - 32px));
+      margin:0 auto;
+      position:relative;
+      z-index:2;
+    }
 
-.stars:after{
-content:"";
-position:absolute;
-width:2px;
-height:2px;
-background:white;
-box-shadow:
-100px 200px white,
-200px 300px white,
-300px 400px white,
-400px 100px white,
-600px 250px white,
-800px 500px white,
-900px 200px white;
-animation:twinkle 5s infinite;
-}
+    /* STAR SKY */
+    .starfield{
+      position:fixed;
+      inset:0;
+      overflow:hidden;
+      z-index:0;
+      pointer-events:none;
+    }
+    .star{
+      position:absolute;
+      width:2px;
+      height:2px;
+      border-radius:50%;
+      background:rgba(255,255,255,.9);
+      animation:twinkle linear infinite;
+      box-shadow:0 0 8px rgba(255,255,255,.7);
+    }
+    .star.gold{
+      background:rgba(242,213,142,.95);
+      box-shadow:0 0 10px rgba(242,213,142,.9);
+    }
+    .star.soft{
+      width:1px;
+      height:1px;
+      opacity:.7;
+    }
+    @keyframes twinkle{
+      0%,100%{opacity:.15; transform:scale(1)}
+      50%{opacity:1; transform:scale(1.8)}
+    }
 
-@keyframes twinkle{
-0%{opacity:0.3;}
-50%{opacity:1;}
-100%{opacity:0.3;}
-}
+    .nebula{
+      position:fixed;
+      inset:auto;
+      width:380px;
+      height:380px;
+      border-radius:50%;
+      filter:blur(70px);
+      opacity:.35;
+      z-index:0;
+      pointer-events:none;
+      animation:floatNebula 10s ease-in-out infinite alternate;
+    }
+    .nebula.n1{
+      top:6%;
+      left:5%;
+      background:radial-gradient(circle, rgba(216,173,75,.35), transparent 60%);
+    }
+    .nebula.n2{
+      top:18%;
+      right:8%;
+      background:radial-gradient(circle, rgba(151,111,255,.28), transparent 60%);
+      animation-duration:12s;
+    }
+    .nebula.n3{
+      bottom:8%;
+      right:18%;
+      background:radial-gradient(circle, rgba(255,119,201,.20), transparent 60%);
+      animation-duration:14s;
+    }
+    @keyframes floatNebula{
+      0%{transform:translateY(0) translateX(0) scale(1)}
+      100%{transform:translateY(-24px) translateX(12px) scale(1.08)}
+    }
 
-/* ✨ ОСНОВА */
-.container{
-max-width:900px;
-margin:auto;
-padding:20px;
-}
+    /* TOPBAR */
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:blur(14px);
+      background:rgba(8,9,16,.62);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .topbar-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:14px 0;
+    }
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+    .logo-mark{
+      width:48px;
+      height:48px;
+      border-radius:16px;
+      position:relative;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.18), transparent 30%),
+        linear-gradient(135deg, rgba(216,173,75,.28), rgba(151,111,255,.10));
+      border:1px solid rgba(242,213,142,.22);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,.03) inset,
+        0 0 24px rgba(216,173,75,.16);
+      flex:0 0 auto;
+    }
+    .logo-mark::before,
+    .logo-mark::after{
+      content:"";
+      position:absolute;
+      border-radius:50%;
+      border:1px solid rgba(242,213,142,.30);
+    }
+    .logo-mark::before{inset:9px}
+    .logo-mark::after{inset:16px}
+    .logo-text{
+      display:flex;
+      flex-direction:column;
+      line-height:1.05;
+    }
+    .logo-title{
+      font-size:20px;
+      font-weight:700;
+      letter-spacing:.5px;
+    }
+    .logo-title span{color:var(--gold2)}
+    .logo-sub{
+      font-size:11px;
+      color:#b8bdd0;
+      letter-spacing:.20em;
+      text-transform:uppercase;
+      margin-top:4px;
+    }
 
-h1{
-font-size:40px;
-margin-top:70px;
-}
+    .nav{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .nav a{
+      font-size:14px;
+      color:var(--muted);
+      transition:.25s;
+    }
+    .nav a:hover{color:#fff}
 
-p{color:#ccc;}
+    .header-actions{
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
 
-.btn{
-padding:14px 26px;
-border-radius:30px;
-background:gold;
-color:black;
-font-weight:bold;
-display:inline-block;
-margin:10px;
-cursor:pointer;
-}
+    /* BUTTONS */
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:15px 24px;
+      border-radius:999px;
+      font-weight:700;
+      border:1px solid transparent;
+      cursor:pointer;
+      transition:.25s ease;
+      text-align:center;
+    }
+    .btn-primary{
+      color:#16120a;
+      background:linear-gradient(135deg, var(--gold) 0%, var(--gold2) 100%);
+      box-shadow:
+        0 10px 28px rgba(216,173,75,.28),
+        0 0 20px rgba(216,173,75,.16);
+    }
+    .btn-primary:hover{
+      transform:translateY(-2px) scale(1.01);
+      box-shadow:
+        0 14px 38px rgba(216,173,75,.34),
+        0 0 28px rgba(242,213,142,.20);
+    }
+    .btn-secondary{
+      background:rgba(255,255,255,.03);
+      border-color:rgba(255,255,255,.08);
+      color:#fff;
+    }
+    .btn-secondary:hover{
+      background:rgba(255,255,255,.08);
+      transform:translateY(-2px);
+    }
+    .btn-vk{
+      color:#fff;
+      background:linear-gradient(135deg, var(--vk) 0%, var(--vk2) 100%);
+      box-shadow:0 10px 28px rgba(76,117,163,.28);
+    }
+    .btn-vk:hover{
+      transform:translateY(-2px) scale(1.01);
+      box-shadow:0 14px 34px rgba(76,117,163,.34);
+    }
+    .pulse{animation:pulseGlow 2.4s infinite ease-in-out}
+    @keyframes pulseGlow{
+      0%,100%{box-shadow:0 0 0 rgba(216,173,75,0), 0 0 18px rgba(216,173,75,.10)}
+      50%{box-shadow:0 0 22px rgba(216,173,75,.22), 0 0 38px rgba(242,213,142,.10)}
+    }
 
-/* 💎 КАРТОЧКИ */
-.card{
-background:rgba(255,255,255,0.05);
-padding:20px;
-margin:15px 0;
-border-radius:15px;
-cursor:pointer;
-transition:0.3s;
-}
+    /* HERO */
+    .hero{
+      position:relative;
+      padding:92px 0 74px;
+      overflow:hidden;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:28px;
+      align-items:center;
+    }
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,215,140,.06);
+      color:var(--gold2);
+      font-size:13px;
+      margin-bottom:18px;
+      box-shadow:0 0 18px rgba(216,173,75,.08);
+    }
+    h1{
+      margin:0 0 18px;
+      font-size:clamp(42px, 6vw, 78px);
+      line-height:1.02;
+      letter-spacing:-.03em;
+      max-width:860px;
+    }
+    .hero p{
+      margin:0 0 28px;
+      color:var(--muted);
+      font-size:20px;
+      max-width:760px;
+    }
+    .hero-cta{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:22px;
+    }
+    .hero-points{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .point{
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.06);
+      color:#ececf5;
+      font-size:14px;
+      transition:.3s ease;
+    }
+    .point:hover{
+      border-color:rgba(242,213,142,.22);
+      box-shadow:0 0 16px rgba(216,173,75,.12);
+      transform:translateY(-2px);
+    }
 
-.card:hover{
-transform:scale(1.05);
-box-shadow:0 0 20px gold;
-}
+    .hero-card{
+      position:relative;
+      padding:26px;
+      border-radius:30px;
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(242,213,142,.16), transparent 26%),
+        radial-gradient(circle at 80% 80%, rgba(151,111,255,.10), transparent 28%);
+      pointer-events:none;
+    }
+    .mini-label{
+      color:var(--gold2);
+      font-size:13px;
+      margin-bottom:12px;
+      position:relative;
+      z-index:1;
+    }
+    .mock-title{
+      font-size:26px;
+      font-weight:700;
+      margin-bottom:10px;
+      position:relative;
+      z-index:1;
+    }
+    .small{
+      color:var(--muted);
+      font-size:14px;
+      position:relative;
+      z-index:1;
+    }
+    .mock-list{
+      margin-top:18px;
+      display:grid;
+      gap:12px;
+      position:relative;
+      z-index:1;
+    }
+    .mock-item{
+      padding:14px 16px;
+      border-radius:16px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.07);
+      color:#f3f3fa;
+      transition:.3s ease;
+    }
+    .mock-item:hover{
+      transform:translateX(4px);
+      box-shadow:0 0 18px rgba(216,173,75,.12);
+      border-color:rgba(242,213,142,.18);
+    }
 
-/* 🔮 РЕЗУЛЬТАТ */
-.result{
-margin-top:30px;
-padding:20px;
-background:rgba(255,215,0,0.1);
-border-radius:15px;
-display:none;
-}
+    /* SECTIONS */
+    section{padding:48px 0}
+    .section-head{
+      text-align:center;
+      max-width:880px;
+      margin:0 auto 30px;
+    }
+    .section-head h2{
+      margin:0 0 12px;
+      font-size:clamp(30px, 4vw, 48px);
+    }
+    .section-head p{
+      margin:0;
+      font-size:18px;
+      color:var(--muted);
+    }
 
-.section{
-margin-top:70px;
-}
+    .grid-4,.grid-3,.grid-2,.faq-grid,.pricing,.contact-grid,.ritual-grid,.med-grid,.planet-grid,.consult-grid{
+      display:grid;
+      gap:18px;
+    }
+    .grid-4{grid-template-columns:repeat(4,1fr)}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .grid-2{grid-template-columns:repeat(2,1fr)}
+    .faq-grid{grid-template-columns:repeat(2,1fr)}
+    .pricing{grid-template-columns:1fr 1fr}
+    .contact-grid{grid-template-columns:1fr 1fr}
+    .ritual-grid{grid-template-columns:repeat(3,1fr)}
+    .med-grid{grid-template-columns:repeat(3,1fr)}
+    .planet-grid{grid-template-columns:repeat(3,1fr)}
+    .consult-grid{grid-template-columns:repeat(3,1fr)}
 
-</style>
+    .card,.about-box,.cta-box,.contact-card{
+      position:relative;
+      padding:24px;
+      border-radius:var(--radius);
+      background:var(--card);
+      border:1px solid rgba(255,255,255,.07);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+    }
+    .card:hover,.about-box:hover,.contact-card:hover{
+      transform:translateY(-4px);
+      border-color:rgba(242,213,142,.18);
+      box-shadow:0 18px 40px rgba(0,0,0,.45),0 0 22px rgba(216,173,75,.10);
+    }
+    .card-glow::before,.about-box::before,.contact-card::before{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      border-radius:inherit;
+      background:linear-gradient(135deg, rgba(242,213,142,.24), transparent 30%, transparent 70%, rgba(151,111,255,.14));
+      opacity:.65;
+      pointer-events:none;
+    }
+
+    .icon{
+      width:50px;
+      height:50px;
+      border-radius:16px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      font-size:22px;
+      margin-bottom:14px;
+      background:rgba(216,173,75,.12);
+      border:1px solid rgba(242,213,142,.18);
+      box-shadow:0 0 18px rgba(216,173,75,.10);
+      position:relative;
+      z-index:1;
+    }
+
+    .card h3,.about-box h3,.contact-card h3{
+      margin:0 0 10px;
+      font-size:22px;
+      position:relative;
+      z-index:1;
+    }
+    .card p,.about-box p,.contact-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:16px;
+      position:relative;
+      z-index:1;
+    }
+
+    .highlight{color:var(--gold2)}
+
+    .niches{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    }
+    .niche-pill{
+      position:relative;
+      padding:18px 16px;
+      border-radius:18px;
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.08);
+      text-align:center;
+      font-weight:700;
+      color:#f8f8ff;
+      overflow:hidden;
+      transition:.35s ease;
+      box-shadow:0 10px 25px rgba(0,0,0,.28);
+    }
+    .niche-pill::before{
+      content:"";
+      position:absolute;
+      inset:auto -10% -80% -10%;
+      height:130%;
+      background:radial-gradient(circle, rgba(242,213,142,.22), transparent 55%);
+      opacity:.6;
+      transition:.35s ease;
+    }
+    .niche-pill:hover{
+      transform:translateY(-5px) scale(1.01);
+      border-color:rgba(242,213,142,.25);
+      box-shadow:0 16px 34px rgba(0,0,0,.36),0 0 26px rgba(216,173,75,.14);
+    }
+    .niche-pill:hover::before{
+      transform:translateY(-18px);
+      opacity:.95;
+    }
+
+    .featured{
+      background:linear-gradient(180deg, rgba(216,173,75,.12), rgba(255,255,255,.05));
+      border:1px solid rgba(242,213,142,.26);
+      box-shadow:var(--shadow),0 0 26px rgba(216,173,75,.10);
+    }
+    .price{
+      font-size:42px;
+      font-weight:700;
+      color:var(--gold2);
+      margin:10px 0 14px;
+    }
+    .price-note{
+      color:var(--muted);
+      margin-bottom:18px;
+    }
+    .list{
+      display:grid;
+      gap:10px;
+      margin:16px 0 22px;
+      color:#ececf4;
+      position:relative;
+      z-index:1;
+    }
+    .list div{
+      padding-left:18px;
+      position:relative;
+    }
+    .list div::before{
+      content:"•";
+      position:absolute;
+      left:0;
+      color:var(--gold2);
+    }
+    .urgency{
+      margin-top:16px;
+      padding:12px 14px;
+      border-radius:14px;
+      background:rgba(255,215,100,.08);
+      border:1px solid rgba(255,215,100,.14);
+      color:#f3e2aa;
+      font-size:14px;
+      font-weight:700;
+      position:relative;
+      z-index:1;
+    }
+
+    .tag{
+      display:inline-block;
+      padding:7px 12px;
+      border-radius:999px;
+      background:rgba(255,215,100,.08);
+      border:1px solid rgba(255,215,100,.14);
+      color:var(--gold2);
+      font-size:12px;
+      margin-bottom:12px;
+      position:relative;
+      z-index:1;
+    }
+
+    .about-box{
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+    }
+
+    .cta-box{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:20px;
+      align-items:center;
+      padding:30px;
+      border-radius:30px;
+      background:linear-gradient(135deg, rgba(216,173,75,.16), rgba(151,111,255,.08));
+      border:1px solid rgba(242,213,142,.22);
+    }
+    .cta-box::before{
+      content:"";
+      position:absolute;
+      top:-40px;
+      right:-60px;
+      width:220px;
+      height:220px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(242,213,142,.18), transparent 65%);
+      pointer-events:none;
+    }
+    .cta-box h2{
+      margin:0 0 12px;
+      font-size:clamp(30px,4vw,42px);
+      position:relative;
+      z-index:1;
+    }
+    .cta-box p{
+      margin:0;
+      color:var(--muted);
+      font-size:18px;
+      position:relative;
+      z-index:1;
+    }
+    .cta-actions{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      position:relative;
+      z-index:1;
+    }
+
+    .contact-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:18px;
+      position:relative;
+      z-index:1;
+    }
+
+    .sticky-contact{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:80;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .sticky-btn{
+      min-width:170px;
+      padding:14px 18px;
+      border-radius:999px;
+      box-shadow:0 10px 28px rgba(0,0,0,.35);
+      font-size:14px;
+    }
+
+    .footer{
+      padding:38px 0 60px;
+      color:#a8aecd;
+      text-align:center;
+      font-size:14px;
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(18px);
+      transition:opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    @media (max-width:1024px){
+      .hero-grid,.grid-4,.grid-3,.grid-2,.niches,.faq-grid,.pricing,.contact-grid,.ritual-grid,.med-grid,.planet-grid,.consult-grid,.cta-box{
+        grid-template-columns:1fr;
+      }
+      .nav{display:none}
+      .header-actions{display:none}
+    }
+
+    @media (max-width:640px){
+      .btn,.contact-actions .btn{width:100%}
+      .hero-cta{flex-direction:column}
+      .hero{padding-top:60px}
+      .hero p,.section-head p,.cta-box p{font-size:16px}
+      .sticky-contact{
+        right:12px;
+        left:12px;
+        bottom:12px;
+      }
+      .sticky-btn{
+        min-width:0;
+        width:100%;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="starfield" id="starfield"></div>
+  <div class="nebula n1"></div>
+  <div class="nebula n2"></div>
+  <div class="nebula n3"></div>
 
-<div class="stars"></div>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="logo">
+        <div class="logo-mark"></div>
+        <div class="logo-text">
+          <div class="logo-title">Astro<span>Potok</span></div>
+          <div class="logo-sub">Астрология • Медитации • Практики</div>
+        </div>
+      </div>
 
-<div class="container">
+      <nav class="nav">
+        <a href="#consult">Консультации</a>
+        <a href="#meditations">Медитации</a>
+        <a href="#upayi">Упайи</a>
+        <a href="#about">Обо мне</a>
+        <a href="#contacts">Запись</a>
+      </nav>
 
-<h1>🔮 Выбери, что тебя беспокоит</h1>
+      <div class="header-actions">
+        <a class="btn btn-secondary" href="https://vk.com/gkvadrat" target="_blank" rel="noopener noreferrer">VK</a>
+        <a class="btn btn-primary pulse" href="https://t.me/ValentinaGavrilovich" target="_blank" rel="noopener noreferrer">Telegram</a>
+      </div>
+    </div>
+  </header>
 
-<p>И я покажу причину</p>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="eyebrow">Мистический астрологический сайт с живой атмосферой</div>
+          <h1>Ты чувствуешь, что в жизни <span class="highlight">что-то не так</span>… и хочешь понять, почему</h1>
+          <p>
+            Астрология помогает увидеть глубинные причины событий: почему не идут деньги,
+            не складываются отношения, не хватает сил или будто всё идёт не по твоему пути.
+            Здесь ты найдёшь не только объяснение, но и <strong>практики, медитации, упайи и возможность записаться на консультацию</strong>.
+          </p>
 
-<!-- ИНТЕРАКТИВ -->
-<div class="card" onclick="showResult('money')">💰 Нет денег</div>
-<div class="card" onclick="showResult('love')">❤️ Проблемы в отношениях</div>
-<div class="card" onclick="showResult('energy')">⚡ Нет энергии</div>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="https://t.me/ValentinaGavrilovich" target="_blank" rel="noopener noreferrer">Получить разбор</a>
+            <a class="btn btn-vk" href="https://vk.com/gkvadrat" target="_blank" rel="noopener noreferrer">Записаться в VK</a>
+            <a class="btn btn-secondary" href="#meditations">Посмотреть медитации</a>
+          </div>
 
-<div id="result" class="result"></div>
+          <div class="hero-points">
+            <div class="point">Деньги</div>
+            <div class="point">Отношения</div>
+            <div class="point">Энергия</div>
+            <div class="point">Периоды жизни</div>
+            <div class="point">Практики и рекомендации</div>
+          </div>
+        </div>
 
-<!-- CTA -->
-<div class="section">
+        <div class="hero-card reveal">
+          <div class="mini-label">Что ты получишь здесь</div>
+          <div class="mock-title">Не просто астрологию, а ощущение, что тебя действительно поняли</div>
+          <div class="small">Мягко, глубоко, по-человечески и с реальной пользой</div>
 
-<h2>✨ Хочешь глубже?</h2>
+          <div class="mock-list">
+            <div class="mock-item">🔮 Разбор причин проблем и жизненных блоков</div>
+            <div class="mock-item">🧘 Медитации на деньги, уверенность, очищение и внутреннюю силу</div>
+            <div class="mock-item">🪐 Упайи для планет: Луна, Венера, Сатурн, Юпитер, Марс</div>
+            <div class="mock-item">✨ Запись на личную консультацию и индивидуальные рекомендации</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<p>Я могу сделать полный разбор твоей ситуации</p>
+    <section id="pain">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Ты можешь узнать себя в этом</h2>
+          <p>Иногда человек чувствует, что старается, но что-то словно не пускает. И это может быть не случайность, а влияние периодов и планет.</p>
+        </div>
 
-<a class="btn" href="https://t.me/ValentinaGavrilovich">
-Записаться
-</a>
+        <div class="grid-4">
+          <div class="card card-glow reveal">
+            <div class="icon">💰</div>
+            <h3>Нет денег</h3>
+            <p>Ты много стараешься, но поток будто закрыт. Приходится бороться за каждую возможность.</p>
+          </div>
+          <div class="card card-glow reveal">
+            <div class="icon">💔</div>
+            <h3>Проблемы в отношениях</h3>
+            <p>Не получается построить гармонию, повторяются похожие сценарии, боль и разочарование.</p>
+          </div>
+          <div class="card card-glow reveal">
+            <div class="icon">⚡</div>
+            <h3>Нет энергии</h3>
+            <p>Усталость, тревога, внутренний шум, ощущение, что сил ни на что не хватает.</p>
+          </div>
+          <div class="card card-glow reveal">
+            <div class="icon">🌫</div>
+            <h3>Потеря пути</h3>
+            <p>Есть ощущение, что жизнь идёт не туда, а ты не понимаешь, где твой настоящий вектор.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-</div>
+    <section id="consult">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Консультации</h2>
+          <p>Формат для тех, кто хочет не просто почитать, а глубже понять себя, свой период, свои задачи и возможные решения.</p>
+        </div>
 
-</div>
+        <div class="consult-grid">
+          <div class="card featured reveal">
+            <div class="tag">Личная консультация</div>
+            <h3>Разбор твоей ситуации</h3>
+            <p>Разберём, что сейчас происходит в жизни, какие темы активны, где причины сложностей и куда лучше двигаться дальше.</p>
+            <div class="list">
+              <div>Деньги и самореализация</div>
+              <div>Отношения и чувства</div>
+              <div>Периоды жизни и внутренние состояния</div>
+              <div>Практические рекомендации</div>
+            </div>
+            <a class="btn btn-primary" href="https://t.me/ValentinaGavrilovich" target="_blank" rel="noopener noreferrer">Записаться</a>
+          </div>
 
-<script>
-function showResult(type){
-let text = "";
+          <div class="card card-glow reveal">
+            <div class="tag">Тема денег</div>
+            <h3>Почему не идёт поток</h3>
+            <p>Понимание, какие астрологические факторы могут тормозить материальную реализацию и как с этим работать мягко и осознанно.</p>
+          </div>
 
-if(type==="money"){
-text = "💰 У тебя может быть блок по Венере или Юпитеру. Это влияет на деньги и возможности.";
-}
+          <div class="card card-glow reveal">
+            <div class="tag">Тема любви</div>
+            <h3>Отношения и внутренние сценарии</h3>
+            <p>Почему повторяются похожие ситуации, где корни внутреннего напряжения и какие темы важно исцелить.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-if(type==="love"){
-text = "❤️ Проблема может быть в Венере или Луне — это влияет на отношения и чувства.";
-}
+    <section id="meditations">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Медитации</h2>
+          <p>Медитации помогают не только успокоиться, но и мягко перестроить внутреннее состояние, которое влияет на внешние события.</p>
+        </div>
 
-if(type==="energy"){
-text = "⚡ Скорее всего Луна или Сатурн создают перегруз и усталость.";
-}
+        <div class="med-grid">
+          <div class="card card-glow reveal">
+            <div class="tag">Практика</div>
+            <h3>Медитация на деньги</h3>
+            <p>Для работы с чувством нехватки, внутренним напряжением и закрытым денежным потоком.</p>
+          </div>
 
-document.getElementById("result").innerHTML = text;
-document.getElementById("result").style.display = "block";
-}
-</script>
+          <div class="card card-glow reveal">
+            <div class="tag">Практика</div>
+            <h3>Медитация на уверенность</h3>
+            <p>Помогает вернуть внутреннюю опору, спокойствие и ощущение собственной ценности.</p>
+          </div>
 
+          <div class="card card-glow reveal">
+            <div class="tag">Практика</div>
+            <h3>Медитация на очищение энергии</h3>
+            <p>Для отпускания тяжёлых состояний, старых эмоций и ощущения внутренней перегрузки.</p>
+          </div>
+
+          <div class="card card-glow reveal">
+            <div class="tag">Практика</div>
+            <h3>Медитация на женскую энергию</h3>
+            <p>Для мягкости, внутренней гармонии, принятия себя и раскрытия внутреннего состояния.</p>
+          </div>
+
+          <div class="card card-glow reveal">
+            <div class="tag">Практика</div>
+            <h3>Медитация на внутреннюю силу</h3>
+            <p>Подходит в моменты потери опоры, сомнений и ощущения, что ты “застряла”.</p>
+          </div>
+
+          <div class="card card-glow reveal">
+            <div class="tag">Практика</div>
+            <h3>Медитация на отпускание прошлого</h3>
+            <p>Для тех, кто чувствует, что старые боли и события всё ещё влияют на настоящее.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="upayi">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Упайи для планет</h2>
+          <p>Упайи — это мягкие духовные и практические действия, которые помогают гармонизировать влияние планет и проживать периоды легче.</p>
+        </div>
+
+        <div class="planet-grid">
+          <div class="card card-glow reveal">
+            <div class="tag">Луна</div>
+            <h3>Для спокойствия и эмоций</h3>
+            <p>Если много тревоги, слёз, эмоциональной нестабильности, внутренней незащищённости.</p>
+          </div>
+
+          <div class="card card-glow reveal">
+            <div class="tag">Венера</div>
+            <h3>Для любви и гармонии</h3>
+            <p>Когда хочется наладить отношения, почувствовать ценность себя и раскрыть мягкую женскую энергию.</p>
+          </div>
+
+          <div class="card card-glow reveal">
+            <div class="tag">Сатурн</div>
+            <h3>Для выхода из тяжёлого периода</h3>
+            <p>Если всё идёт медленно, жизнь давит, кажется, что вокруг ограничения, долг и внутренний холод.</p>
+          </div>
+
+          <div class="card card-glow reveal">
+            <div class="tag">Юпитер</div>
+            <h3>Для роста и благополучия</h3>
+            <p>Для усиления мудрости, доверия жизни, благословений, возможностей и темы достатка.</p>
+          </div>
+
+          <div class="card card-glow reveal">
+            <div class="tag">Марс</div>
+            <h3>Для силы и действий</h3>
+            <p>Если не хватает воли, решительности, энергии на движение и умения защищать свои границы.</p>
+          </div>
+
+          <div class="card card-glow reveal">
+            <div class="tag">Индивидуально</div>
+            <h3>Подбор упай по карте</h3>
+            <p>На консультации можно подобрать рекомендации под твою личную ситуацию и активные периоды.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="transform">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Что может измениться после разбора</h2>
+          <p>Консультация не “волшебная кнопка”, но она даёт ясность, понимание причин и ощущение, что ты больше не идёшь вслепую.</p>
+        </div>
+
+        <div class="ritual-grid">
+          <div class="card card-glow reveal">
+            <div class="icon">✨</div>
+            <h3>Появляется ясность</h3>
+            <p>Ты начинаешь понимать, почему происходят те или иные события и что с этим можно делать.</p>
+          </div>
+
+          <div class="card card-glow reveal">
+            <div class="icon">🌙</div>
+            <h3>Становится спокойнее</h3>
+            <p>Когда есть понимание периода и его смысла, уходит часть тревоги и внутреннего хаоса.</p>
+          </div>
+
+          <div class="card card-glow reveal">
+            <div class="icon">🪄</div>
+            <h3>Появляются действия</h3>
+            <p>Ты получаешь ориентиры: практики, упайи, направления, на что обратить внимание уже сейчас.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container grid-2">
+        <div class="about-box reveal">
+          <h3>Коротко обо мне</h3>
+          <p>
+            Я помогаю людям смотреть на свою жизнь глубже: через астрологию, внутренние причины событий,
+            периоды, энергии и практики. Мне важно не просто дать красивую информацию,
+            а помочь человеку <strong>почувствовать ясность, опору и путь</strong>.
+          </p>
+        </div>
+
+        <div class="about-box reveal">
+          <h3>Мой подход</h3>
+          <p>
+            Простым языком, бережно, без запугивания и давления. Я соединяю объяснение,
+            практические рекомендации, медитации и ощущение, что человека действительно услышали.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacts">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Запись на консультацию</h2>
+          <p>Если чувствуешь отклик — напиши мне. Можно в Telegram или VK, как тебе удобнее.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card reveal">
+            <h3>Написать в Telegram</h3>
+            <p>Подходит, если хочешь быстро задать вопрос, записаться или уточнить формат консультации.</p>
+            <div class="contact-actions">
+              <a class="btn btn-primary pulse" href="https://t.me/ValentinaGavrilovich" target="_blank" rel="noopener noreferrer">Открыть Telegram</a>
+            </div>
+          </div>
+
+          <div class="contact-card reveal">
+            <h3>Написать в VK</h3>
+            <p>Если Telegram работает нестабильно, можно спокойно связаться со мной через VK.</p>
+            <div class="contact-actions">
+              <a class="btn btn-vk" href="https://vk.com/gkvadrat" target="_blank" rel="noopener noreferrer">Открыть VK</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="price">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Форматы работы</h2>
+          <p>Можно начать с одной консультации, а дальше, при желании, углубляться в практики и рекомендации.</p>
+        </div>
+
+        <div class="pricing">
+          <div class="card card-glow reveal">
+            <div class="tag">Старт</div>
+            <h3>Мини-разбор</h3>
+            <div class="price">от 2 000 ₽</div>
+            <div class="price-note">Короткий формат для понимания основной темы, вопроса или текущего периода.</div>
+            <div class="list">
+              <div>Подходит для первого знакомства</div>
+              <div>Помогает увидеть главную тему</div>
+              <div>Даёт направление дальше</div>
+            </div>
+            <a class="btn btn-secondary" href="https://vk.com/gkvadrat" target="_blank" rel="noopener noreferrer">Уточнить в VK</a>
+          </div>
+
+          <div class="card featured reveal">
+            <div class="tag">Основной формат</div>
+            <h3>Личная консультация</h3>
+            <div class="price">от 5 000 ₽</div>
+            <div class="price-note">Более глубокий разбор ситуации, периода, тем денег, отношений, энергии и рекомендаций.</div>
+            <div class="list">
+              <div>Разбор жизненной ситуации</div>
+              <div>Причины внутренних и внешних сложностей</div>
+              <div>Практики, упайи, рекомендации</div>
+              <div>Запись через Telegram или VK</div>
+            </div>
+            <a class="btn btn-primary" href="https://t.me/ValentinaGavrilovich" target="_blank" rel="noopener noreferrer">Записаться</a>
+            <div class="urgency">Я беру ограниченное количество консультаций, чтобы сохранять глубину и внимание к каждому человеку.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="final-cta">
+      <div class="container">
+        <div class="cta-box reveal">
+          <div>
+            <h2>Если внутри есть ощущение, что тебе нужен ответ — не игнорируй это</h2>
+            <p>
+              Иногда одного разговора и одного точного разбора достаточно, чтобы по-другому увидеть свою жизнь,
+              успокоиться и начать двигаться в более правильную сторону.
+            </p>
+          </div>
+
+          <div class="cta-actions">
+            <a class="btn btn-primary pulse" href="https://t.me/ValentinaGavrilovich" target="_blank" rel="noopener noreferrer">Записаться в Telegram</a>
+            <a class="btn btn-vk" href="https://vk.com/gkvadrat" target="_blank" rel="noopener noreferrer">Записаться в VK</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Частые вопросы</h2>
+          <p>Коротко и по делу.</p>
+        </div>
+
+        <div class="faq-grid">
+          <div class="card card-glow reveal">
+            <h3>Если я ничего не понимаю в астрологии?</h3>
+            <p>Это нормально. Я объясняю простым языком, без сложных терминов и запутанных формулировок.</p>
+          </div>
+
+          <div class="card card-glow reveal">
+            <h3>Можно ли прийти с конкретным вопросом?</h3>
+            <p>Да. Это может быть вопрос про отношения, деньги, период жизни, энергию или внутреннее состояние.</p>
+          </div>
+
+          <div class="card card-glow reveal">
+            <h3>Упайи обязательны?</h3>
+            <p>Нет. Это рекомендации и мягкие практики, которые можно использовать как поддержку, а не как давление.</p>
+          </div>
+
+          <div class="card card-glow reveal">
+            <h3>Если Telegram тормозит?</h3>
+            <p>На сайте есть и VK, поэтому можно выбрать тот способ связи, который тебе удобнее.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="sticky-contact">
+    <a class="btn btn-primary sticky-btn pulse" href="https://t.me/ValentinaGavrilovich" target="_blank" rel="noopener noreferrer">Telegram</a>
+    <a class="btn btn-vk sticky-btn" href="https://vk.com/gkvadrat" target="_blank" rel="noopener noreferrer">VK</a>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      AstroPotok • Астрология, медитации, упайи и консультации • Telegram: @ValentinaGavrilovich • VK: gkvadrat
+    </div>
+  </footer>
+
+  <script>
+    // stars
+    const field = document.getElementById('starfield');
+    const count = 120;
+    for (let i = 0; i < count; i++) {
+      const s = document.createElement('span');
+      s.className = 'star' + (i % 9 === 0 ? ' gold' : '') + (i % 4 === 0 ? ' soft' : '');
+      s.style.left = Math.random() * 100 + '%';
+      s.style.top = Math.random() * 100 + '%';
+      s.style.animationDuration = (2 + Math.random() * 5) + 's';
+      s.style.animationDelay = (Math.random() * 5) + 's';
+      field.appendChild(s);
+    }
+
+    // reveal
+    const items = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.12 });
+    items.forEach(item => observer.observe(item));
+  </script>
 </body>
-</html>
+</html> 
