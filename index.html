@@ -1,1 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Астрология судьбы</title>
 
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:black;
+color:white;
+text-align:center;
+overflow-x:hidden;
+}
+
+/* 🌌 ЗВЕЗДЫ */
+.stars{
+position:fixed;
+width:100%;
+height:100%;
+z-index:-1;
+}
+
+.stars:after{
+content:"";
+position:absolute;
+width:2px;
+height:2px;
+background:white;
+box-shadow:
+100px 200px white,
+200px 300px white,
+300px 400px white,
+400px 100px white,
+600px 250px white,
+800px 500px white,
+900px 200px white;
+animation:twinkle 5s infinite;
+}
+
+@keyframes twinkle{
+0%{opacity:0.3;}
+50%{opacity:1;}
+100%{opacity:0.3;}
+}
+
+/* ✨ ОСНОВА */
+.container{
+max-width:900px;
+margin:auto;
+padding:20px;
+}
+
+h1{
+font-size:40px;
+margin-top:70px;
+}
+
+p{color:#ccc;}
+
+.btn{
+padding:14px 26px;
+border-radius:30px;
+background:gold;
+color:black;
+font-weight:bold;
+display:inline-block;
+margin:10px;
+cursor:pointer;
+}
+
+/* 💎 КАРТОЧКИ */
+.card{
+background:rgba(255,255,255,0.05);
+padding:20px;
+margin:15px 0;
+border-radius:15px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.card:hover{
+transform:scale(1.05);
+box-shadow:0 0 20px gold;
+}
+
+/* 🔮 РЕЗУЛЬТАТ */
+.result{
+margin-top:30px;
+padding:20px;
+background:rgba(255,215,0,0.1);
+border-radius:15px;
+display:none;
+}
+
+.section{
+margin-top:70px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<div class="container">
+
+<h1>🔮 Выбери, что тебя беспокоит</h1>
+
+<p>И я покажу причину</p>
+
+<!-- ИНТЕРАКТИВ -->
+<div class="card" onclick="showResult('money')">💰 Нет денег</div>
+<div class="card" onclick="showResult('love')">❤️ Проблемы в отношениях</div>
+<div class="card" onclick="showResult('energy')">⚡ Нет энергии</div>
+
+<div id="result" class="result"></div>
+
+<!-- CTA -->
+<div class="section">
+
+<h2>✨ Хочешь глубже?</h2>
+
+<p>Я могу сделать полный разбор твоей ситуации</p>
+
+<a class="btn" href="https://t.me/ValentinaGavrilovich">
+Записаться
+</a>
+
+</div>
+
+</div>
+
+<script>
+function showResult(type){
+let text = "";
+
+if(type==="money"){
+text = "💰 У тебя может быть блок по Венере или Юпитеру. Это влияет на деньги и возможности.";
+}
+
+if(type==="love"){
+text = "❤️ Проблема может быть в Венере или Луне — это влияет на отношения и чувства.";
+}
+
+if(type==="energy"){
+text = "⚡ Скорее всего Луна или Сатурн создают перегруз и усталость.";
+}
+
+document.getElementById("result").innerHTML = text;
+document.getElementById("result").style.display = "block";
+}
+</script>
+
+</body>
+</html>
