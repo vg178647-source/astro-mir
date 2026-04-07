@@ -4,10 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AstroPotok | Астрология, мантры, камни и консультации</title>
-  <meta name="description" content="Астрология простыми словами: консультации, мантры по планетам, медитации, упайи, камни и минералы, отношения, деньги и энергия." />
+  <meta name="description" content="Астрология простыми словами: мантры по планетам, камни по знакам зодиака, консультации, разбор отношений, денег и энергии." />
   <style>
     :root{
       --bg:#06070d;
+      --card:rgba(255,255,255,.06);
+      --card-2:rgba(255,255,255,.08);
       --gold:#d8ad4b;
       --gold2:#f2d58e;
       --text:#ffffff;
@@ -16,7 +18,7 @@
       --vk2:#6f92bc;
       --shadow:0 24px 70px rgba(0,0,0,.48);
       --radius:26px;
-      --max:1240px;
+      --max:1260px;
     }
 
     *{box-sizing:border-box}
@@ -239,11 +241,6 @@
       transform:translateY(-2px) scale(1.01);
       box-shadow:0 14px 34px rgba(76,117,163,.34);
     }
-    .pulse{animation:pulseGlow 2.4s infinite ease-in-out}
-    @keyframes pulseGlow{
-      0%,100%{box-shadow:0 0 0 rgba(216,173,75,0), 0 0 18px rgba(216,173,75,.10)}
-      50%{box-shadow:0 0 22px rgba(216,173,75,.22), 0 0 38px rgba(242,213,142,.10)}
-    }
 
     .hero{
       position:relative;
@@ -381,11 +378,6 @@
       transition:.3s ease;
       font-family: Arial, sans-serif;
     }
-    .mock-item:hover{
-      transform:translateX(4px);
-      box-shadow:0 0 18px rgba(216,173,75,.12);
-      border-color:rgba(242,213,142,.18);
-    }
 
     .avatar-card{
       display:flex;
@@ -409,13 +401,6 @@
       box-shadow:0 0 24px rgba(216,173,75,.16);
       position:relative;
       background:rgba(255,255,255,.05);
-    }
-    .avatar-wrap::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:radial-gradient(circle at 50% 20%, rgba(242,213,142,.20), transparent 40%);
-      pointer-events:none;
     }
     .avatar-wrap img{
       width:100%;
@@ -459,7 +444,7 @@
     }
     .grid-3{grid-template-columns:repeat(3,1fr)}
     .player-grid{grid-template-columns:repeat(3,1fr)}
-    .stones-grid{grid-template-columns:repeat(3,1fr)}
+    .stones-grid{grid-template-columns:repeat(2,1fr)}
     .contact-grid{grid-template-columns:1fr 1fr}
     .pricing{grid-template-columns:1fr 1fr}
 
@@ -467,7 +452,7 @@
       position:relative;
       padding:24px;
       border-radius:var(--radius);
-      background:rgba(255,255,255,.06);
+      background:var(--card);
       border:1px solid rgba(255,255,255,.07);
       box-shadow:var(--shadow);
       overflow:hidden;
@@ -582,18 +567,45 @@
       text-shadow:0 2px 14px rgba(0,0,0,.55);
     }
 
-    .stone-img{
-      width:100%;
-      aspect-ratio:4/3;
-      object-fit:cover;
-      border-radius:18px;
-      display:block;
-      margin-bottom:14px;
-      border:1px solid rgba(255,255,255,.08);
-      box-shadow:0 10px 24px rgba(0,0,0,.28);
+    .stone-box{
+      display:grid;
+      grid-template-columns:110px 1fr;
+      gap:16px;
+      align-items:start;
       position:relative;
       z-index:1;
-      background:rgba(255,255,255,.04);
+    }
+    .stone-pic{
+      width:110px;
+      height:110px;
+      border-radius:20px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.28), transparent 30%),
+        radial-gradient(circle at 70% 75%, rgba(242,213,142,.22), transparent 28%),
+        linear-gradient(135deg, rgba(41,36,64,.95), rgba(16,14,28,.98));
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:0 10px 24px rgba(0,0,0,.28);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:44px;
+      flex:0 0 auto;
+    }
+    .stone-content h3{
+      margin:0 0 8px;
+      font-size:24px;
+      position:relative;
+      z-index:1;
+    }
+    .stone-list{
+      margin-top:12px;
+      display:grid;
+      gap:8px;
+      position:relative;
+      z-index:1;
+      font-family: Arial, sans-serif;
+      color:var(--muted);
+      font-size:15px;
     }
 
     .featured{
@@ -727,6 +739,8 @@
       .header-actions{display:none}
       .avatar-card{flex-direction:column; text-align:center}
       .avatar-text{text-align:center}
+      .stone-box{grid-template-columns:1fr}
+      .stone-pic{margin:0 auto}
     }
 
     @media (max-width:640px){
@@ -810,7 +824,7 @@
 
           <div class="avatar-card">
             <div class="avatar-wrap">
-              <img src="/astro-mir/avatar-astropotok.jpg?v=6" alt="Валентина" />
+              <img src="avatar-astropotok.jpg" alt="Валентина" />
             </div>
             <div class="avatar-text">
               <h3>Валентина</h3>
@@ -824,7 +838,7 @@
           <div class="mock-list">
             <div class="mock-item">🔮 Разбор причин проблем и жизненных блоков</div>
             <div class="mock-item">🎧 Мантры по планетам: любовь, бизнес, здоровье, защита</div>
-            <div class="mock-item">💎 Подбор камней и минералов по запросу</div>
+            <div class="mock-item">💎 Камни по знакам зодиака и жизненным темам</div>
             <div class="mock-item">✨ Запись на личную консультацию</div>
           </div>
         </div>
@@ -950,7 +964,7 @@
       <div class="container">
         <div class="section-head reveal">
           <h2>Мантры по планетам</h2>
-          <p>Отдельный мистический раздел с твоими мантрами. Можно зайти, прочитать описание и сразу нажать «Слушать».</p>
+          <p>Красивые мистические карточки: проваливаешься в атмосферу, читаешь описание и сразу можешь слушать.</p>
         </div>
 
         <div class="player-grid">
@@ -958,12 +972,8 @@
             <div class="visual"><span>Солнце</span></div>
             <div class="tag">Уверенность • здоровье</div>
             <h3>Мантра Солнцу</h3>
-            <p>Подходит для усиления внутреннего света, уверенности, энергии, жизненной опоры и здоровья.</p>
-            <div class="audio-wrap">
-              <audio controls preload="none">
-                <source src="/astro-mir/%D0%9C%D0%B0%D0%BD%D1%82%D1%80%D0%B0%20%D0%A1%D0%BE%D0%BB%D0%BD%D1%86%D1%83%20-%20%D0%94%D0%BB%D1%8F%20%D1%83%D0%BB%D1%83%D1%87%D1%88%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%B7%D0%B4%D0%BE%D1%80%D0%BE%D0%B2%D1%8C%D1%8F%20%D0%B8%20%D1%83%D0%B2%D0%B5%D1%80%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%B2%20%D1%81%D0%B5%D0%B1%D0%B5.mp3" type="audio/mpeg">
-              </audio>
-            </div>
+            <p>Для усиления внутреннего света, уверенности, жизненной опоры и здоровья.</p>
+            <div class="audio-wrap"><audio controls preload="none"><source src="mantra-sun.mp3" type="audio/mpeg"></audio></div>
           </div>
 
           <div class="card reveal">
@@ -971,11 +981,7 @@
             <div class="tag">Спокойствие • эмоции</div>
             <h3>Мантра Луне</h3>
             <p>Для мягкости, внутреннего спокойствия, гармонизации эмоций и ощущения внутренней защищённости.</p>
-            <div class="audio-wrap">
-              <audio controls preload="none">
-                <source src="/astro-mir/%D0%9C%D0%B0%D0%BD%D1%82%D1%80%D0%B0%20%D0%9B%D1%83%D0%BD%D0%B5%20-%20%D0%9C%D0%B0%D0%BD%D1%82%D1%80%D0%B0%20%D0%9B%D1%83%D0%BD%D1%8B.mp3" type="audio/mpeg">
-              </audio>
-            </div>
+            <div class="audio-wrap"><audio controls preload="none"><source src="mantra-moon.mp3" type="audio/mpeg"></audio></div>
           </div>
 
           <div class="card reveal">
@@ -983,11 +989,7 @@
             <div class="tag">Бизнес • обучение • связи</div>
             <h3>Мантра Меркурию</h3>
             <p>Для ясности мышления, коммуникации, деловых контактов, обучения и выстраивания полезных связей.</p>
-            <div class="audio-wrap">
-              <audio controls preload="none">
-                <source src="/astro-mir/%D0%9C%D0%B0%D0%BD%D1%82%D1%80%D0%B0%20-%20%D0%9C%D0%B5%D1%80%D0%BA%D1%83%D1%80%D0%B8%D1%8E%20-%20%D0%94%D0%BB%D1%8F%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0%2C%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%2C%20%D0%B2%D1%8B%D1%81%D1%82%D1%80%D0%B0%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20%D1%81%D0%B2%D1%8F%D0%B7%D0%B5%D0%B9.mp3" type="audio/mpeg">
-              </audio>
-            </div>
+            <div class="audio-wrap"><audio controls preload="none"><source src="mantra-mercury.mp3" type="audio/mpeg"></audio></div>
           </div>
 
           <div class="card reveal">
@@ -995,11 +997,7 @@
             <div class="tag">Любовь • гармония</div>
             <h3>Мантра Венере</h3>
             <p>Для привлечения любви, мягкости, красоты, женской энергии и гармонизации сердечной сферы.</p>
-            <div class="audio-wrap">
-              <audio controls preload="none">
-                <source src="/astro-mir/%D0%9C%D0%B0%D0%BD%D1%82%D1%80%D0%B0%20%D0%92%D0%B5%D0%BD%D0%B5%D1%80%D0%B5%20-%20%D0%94%D0%BB%D1%8F%20%D0%BF%D1%80%D0%B8%D0%B2%D0%BB%D0%B5%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%BB%D1%8E%D0%B1%D0%B2%D0%B8.mp3" type="audio/mpeg">
-              </audio>
-            </div>
+            <div class="audio-wrap"><audio controls preload="none"><source src="mantra-venus.mp3" type="audio/mpeg"></audio></div>
           </div>
 
           <div class="card reveal">
@@ -1007,59 +1005,39 @@
             <div class="tag">Сила • действие</div>
             <h3>Мантра Марсу</h3>
             <p>Для усиления воли, решительности, энергии, смелости и внутреннего огня на действия.</p>
-            <div class="audio-wrap">
-              <audio controls preload="none">
-                <source src="/astro-mir/%D0%9C%D0%B0%D0%BD%D1%82%D1%80%D0%B0%20%D0%9C%D0%B0%D1%80%D1%81%D1%83%20-%20%D0%9E%D0%BC%20%D0%9D%D0%B0%D0%BC%D0%BE%20%D0%91%D1%85%D0%B0%D0%B3%D0%B0%D0%B2%D0%B0%D1%82%D1%8D%20%D0%9D%D0%B0%D1%80%D0%B0%D1%81%D0%B8%D0%BC%D1%85%D0%B0%D0%B4%D1%8D%D0%B2%D0%B0%D0%B9%D0%B0.mp3" type="audio/mpeg">
-              </audio>
-            </div>
+            <div class="audio-wrap"><audio controls preload="none"><source src="mantra-mars.mp3" type="audio/mpeg"></audio></div>
           </div>
 
           <div class="card reveal">
             <div class="visual"><span>Сатурн</span></div>
-            <div class="tag">Устойчивость • прохождение трудностей</div>
+            <div class="tag">Устойчивость • трудности</div>
             <h3>Мантра Сатурну</h3>
-            <p>Для спокойствия, устойчивости, внутренней зрелости и прохождения тяжёлых жизненных этапов.</p>
-            <div class="audio-wrap">
-              <audio controls preload="none">
-                <source src="/astro-mir/%D0%BC%D0%B0%D0%BD%D1%82%D1%80%D0%B0%20%D0%A1%D0%B0%D1%82%D1%83%D1%80%D0%BD%D1%83%20-%20%D0%9E%D0%BC%20%D0%A8%D0%B0%D0%BD%D1%82%D0%B8%20%D0%A8%D0%B0%D0%BD%D1%82%D0%B8%20%D0%A8%D0%B0%D0%BD%D1%82%D0%B8%20%D0%9E%D0%BC.%20%28%D0%A1%D0%B0%D1%82%D1%83%D1%80%D0%BD%29.mp3" type="audio/mpeg">
-              </audio>
-            </div>
+            <p>Для спокойствия, устойчивости, внутренней зрелости и прохождения тяжёлых этапов.</p>
+            <div class="audio-wrap"><audio controls preload="none"><source src="mantra-saturn.mp3" type="audio/mpeg"></audio></div>
           </div>
 
           <div class="card reveal">
             <div class="visual"><span>Раху</span></div>
-            <div class="tag">Туман • страхи • нестабильность</div>
+            <div class="tag">Туман • страхи • хаос</div>
             <h3>Мантра Раху</h3>
-            <p>Для успокоения сильного внутреннего напряжения, хаоса, страхов и ощущений неустойчивости.</p>
-            <div class="audio-wrap">
-              <audio controls preload="none">
-                <source src="/astro-mir/%D0%9C%D0%B0%D0%BD%D1%82%D1%80%D0%B0%20%D0%94%D0%BB%D1%8F%20%D0%A0%D0%B0%D1%85%D1%83%20-%20%D0%9E%D0%9C%20%D0%A0%D0%90%D0%A5%D0%90%D0%92%D0%95%20%D0%9D%D0%90%D0%9C%D0%90%D0%A5%D0%90%20108%20%D1%80%D0%B0%D0%B7.mp3" type="audio/mpeg">
-              </audio>
-            </div>
+            <p>Для успокоения сильного внутреннего напряжения, страхов и ощущения неустойчивости.</p>
+            <div class="audio-wrap"><audio controls preload="none"><source src="mantra-rahu.mp3" type="audio/mpeg"></audio></div>
           </div>
 
           <div class="card reveal">
             <div class="visual"><span>Кету</span></div>
-            <div class="tag">Отпускание • карма • глубина</div>
+            <div class="tag">Отпускание • глубина</div>
             <h3>Мантра Кету</h3>
             <p>Для отпускания лишнего, работы с кармическими темами и внутреннего очищения.</p>
-            <div class="audio-wrap">
-              <audio controls preload="none">
-                <source src="/astro-mir/%D0%9C%D0%B0%D0%BD%D1%82%D1%80%D0%B0%20%D0%94%D0%BB%D1%8F%20%D0%9A%D0%B5%D1%82%D1%83%20-%20%D0%9E%D0%9C%20%D0%9A%D0%95%D0%A2%D0%90%D0%92%D0%95%20%D0%9D%D0%90%D0%9C%D0%90%D0%A5%D0%90%20108%20%D1%80%D0%B0%D0%B7.mp3" type="audio/mpeg">
-              </audio>
-            </div>
+            <div class="audio-wrap"><audio controls preload="none"><source src="mantra-ketu.mp3" type="audio/mpeg"></audio></div>
           </div>
 
           <div class="card reveal">
             <div class="visual"><span>Маха Мритьюнджая</span></div>
-            <div class="tag">Защита • исцеление • сила духа</div>
+            <div class="tag">Защита • исцеление</div>
             <h3>Мантра Великого Победителя смерти</h3>
-            <p>Используется как сильная защитная и поддерживающая мантра в тяжёлые периоды и состояния.</p>
-            <div class="audio-wrap">
-              <audio controls preload="none">
-                <source src="/astro-mir/%D0%9C%D0%B0%D0%BD%D1%82%D1%80%D0%B0%20%D0%92%D0%B5%D0%BB%D0%B8%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%9F%D0%BE%D0%B1%D0%B5%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8F%20%D1%81%D0%BC%D0%B5%D1%80%D1%82%D0%B8%20-%20%D0%A1%D0%BF%D0%B0%D1%81%D0%B0%D0%B5%D1%82%20%D0%BE%D1%82%20%D0%B2%D1%81%D0%B5%D1%85%20%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D0%B5%D0%B9%20%D0%B8%20%D1%81%D0%BC%D0%B5%D1%80%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D1%85%20%D0%B1%D0%BE%D0%BB%D0%B5%D0%B7%D0%BD%D0%B5%D0%B9.mp3" type="audio/mpeg">
-              </audio>
-            </div>
+            <p>Сильная защитная и поддерживающая мантра в тяжёлые периоды и состояния.</p>
+            <div class="audio-wrap"><audio controls preload="none"><source src="maha-mrityunjaya.mp3" type="audio/mpeg"></audio></div>
           </div>
         </div>
       </div>
@@ -1068,51 +1046,213 @@
     <section id="stones">
       <div class="container">
         <div class="section-head reveal">
-          <h2>Камни и минералы</h2>
-          <p>Некоторым людям хочется не только понять свой период, но и подобрать для себя поддерживающий камень — для любви, спокойствия, уверенности, денег или защиты.</p>
+          <h2>Камни по знакам зодиака</h2>
+          <p>Ниже — подборка камней и их качеств для каждого знака. Я оформила это нативно и красиво, как ты просила.</p>
         </div>
 
         <div class="stones-grid">
           <div class="card reveal">
-            <img class="stone-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/AdulaireSuisse2.jpg" alt="Лунный камень">
-            <div class="tag">Луна / эмоции</div>
-            <h3>Лунный камень</h3>
-            <p>Подходит тем, кто хочет больше мягкости, спокойствия, женской энергии и внутреннего принятия. Часто выбирают для эмоционального баланса и тонкой интуиции.</p>
+            <div class="stone-box">
+              <div class="stone-pic">♈</div>
+              <div class="stone-content">
+                <div class="tag">Овен</div>
+                <h3>Овен</h3>
+                <div class="stone-list">
+                  <div><strong>Алмаз</strong> — придаёт уверенность и решительность.</div>
+                  <div><strong>Рубин</strong> — усиливает лидерские качества и жизненную энергию.</div>
+                  <div><strong>Гранат</strong> — помогает сохранять активность и энтузиазм.</div>
+                  <div><strong>Аметист</strong> — смягчает вспыльчивость и импульсивность.</div>
+                  <div><strong>Тигровый глаз</strong> — даёт защиту от негатива и повышает концентрацию.</div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="card reveal">
-            <img class="stone-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Rose_quartz_%28079%29.jpg" alt="Розовый кварц">
-            <div class="tag">Любовь / Венера</div>
-            <h3>Розовый кварц</h3>
-            <p>Ассоциируется с любовью, нежностью, исцелением сердца и темой самоценности. Хорош для тех, кто хочет мягче проживать чувства и отношения.</p>
+            <div class="stone-box">
+              <div class="stone-pic">♉</div>
+              <div class="stone-content">
+                <div class="tag">Телец</div>
+                <h3>Телец</h3>
+                <div class="stone-list">
+                  <div><strong>Изумруд</strong> — способствует финансовому благополучию и стабильности.</div>
+                  <div><strong>Бирюза</strong> — оберегает от стресса и помогает сохранять гармонию.</div>
+                  <div><strong>Розовый кварц</strong> — усиливает способность любить и быть любимым.</div>
+                  <div><strong>Малахит</strong> — защищает от негативных энергий и поддерживает здоровье.</div>
+                  <div><strong>Агат</strong> — даёт устойчивость и заземление.</div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="card reveal">
-            <img class="stone-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Schorl%20-%20black%20tourmaline.JPG" alt="Чёрный турмалин">
-            <div class="tag">Защита / Сатурн</div>
-            <h3>Чёрный турмалин</h3>
-            <p>Часто выбирают для ощущения защиты, заземления и снижения внутреннего хаоса. Подходит в периоды тяжести, тревоги и внешнего давления.</p>
+            <div class="stone-box">
+              <div class="stone-pic">♊</div>
+              <div class="stone-content">
+                <div class="tag">Близнецы</div>
+                <h3>Близнецы</h3>
+                <div class="stone-list">
+                  <div><strong>Агат</strong> — улучшает коммуникативные навыки и память.</div>
+                  <div><strong>Аметист</strong> — помогает упорядочить мысли и снизить тревожность.</div>
+                  <div><strong>Топаз</strong> — способствует ясности ума и красноречию.</div>
+                  <div><strong>Сердолик</strong> — заряжает энергией для новых начинаний.</div>
+                  <div><strong>Цитрин</strong> — привлекает удачу в делах и усиливает оптимизм.</div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="card reveal">
-            <img class="stone-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Citrine-crystals.jpg" alt="Цитрин">
-            <div class="tag">Деньги / изобилие</div>
-            <h3>Цитрин</h3>
-            <p>Связан с темой уверенности, материального потока, проявленности и ощущения “я могу”. Часто его выбирают для усиления денежного намерения.</p>
+            <div class="stone-box">
+              <div class="stone-pic">♋</div>
+              <div class="stone-content">
+                <div class="tag">Рак</div>
+                <h3>Рак</h3>
+                <div class="stone-list">
+                  <div><strong>Жемчуг</strong> — усиливает интуицию и эмоциональную чувствительность.</div>
+                  <div><strong>Лунный камень</strong> — помогает справляться с перепадами настроения.</div>
+                  <div><strong>Аквамарин</strong> — успокаивает и защищает от стресса.</div>
+                  <div><strong>Халцедон</strong> — поддерживает эмоциональную стабильность.</div>
+                  <div><strong>Родонит</strong> — помогает раскрыть творческий потенциал.</div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="card reveal">
-            <img class="stone-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Rough%20Red%20Garnet%20Gemstone.jpg" alt="Гранат">
-            <div class="tag">Сила / Марс</div>
-            <h3>Гранат</h3>
-            <p>Подходит тем, кому не хватает энергии, решительности и внутреннего огня. Может ассоциироваться с волей, действием и смелостью.</p>
+            <div class="stone-box">
+              <div class="stone-pic">♌</div>
+              <div class="stone-content">
+                <div class="tag">Лев</div>
+                <h3>Лев</h3>
+                <div class="stone-list">
+                  <div><strong>Рубин</strong> — подчёркивает харизму и лидерские качества.</div>
+                  <div><strong>Янтарь</strong> — даёт энергию и оптимизм.</div>
+                  <div><strong>Цитрин</strong> — привлекает успех и финансовое благополучие.</div>
+                  <div><strong>Гранат</strong> — усиливает страсть и мотивацию.</div>
+                  <div><strong>Сердолик</strong> — помогает сохранять бодрость духа и уверенность.</div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="card reveal">
-            <img class="stone-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Amethyst%20crystal.jpg" alt="Аметист">
-            <div class="tag">Мудрость / Юпитер</div>
-            <h3>Аметист</h3>
-            <p>Камень для спокойствия ума, духовной глубины, внутренней ясности и интуитивного понимания. Подходит для медитаций и внутренней работы.</p>
+            <div class="stone-box">
+              <div class="stone-pic">♍</div>
+              <div class="stone-content">
+                <div class="tag">Дева</div>
+                <h3>Дева</h3>
+                <div class="stone-list">
+                  <div><strong>Нефрит</strong> — способствует здоровью и долголетию.</div>
+                  <div><strong>Яшма</strong> — даёт стабильность и практичность.</div>
+                  <div><strong>Сердолик</strong> — помогает в реализации планов.</div>
+                  <div><strong>Хризолит</strong> — успокаивает и гармонизирует.</div>
+                  <div><strong>Агат</strong> — поддерживает организованность и внимание к деталям.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <div class="stone-box">
+              <div class="stone-pic">♎</div>
+              <div class="stone-content">
+                <div class="tag">Весы</div>
+                <h3>Весы</h3>
+                <div class="stone-list">
+                  <div><strong>Опал</strong> — помогает находить баланс и гармонию.</div>
+                  <div><strong>Лазурит</strong> — усиливает дипломатичность и интуицию.</div>
+                  <div><strong>Турмалин</strong> — защищает от негатива и заряжает энергией.</div>
+                  <div><strong>Аквамарин</strong> — способствует честности и ясности мышления.</div>
+                  <div><strong>Розовый кварц</strong> — укрепляет отношения и притягивает любовь.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <div class="stone-box">
+              <div class="stone-pic">♏</div>
+              <div class="stone-content">
+                <div class="tag">Скорпион</div>
+                <h3>Скорпион</h3>
+                <div class="stone-list">
+                  <div><strong>Топаз</strong> — помогает контролировать эмоции и усиливает интуицию.</div>
+                  <div><strong>Аметист</strong> — очищает энергетику и снижает стресс.</div>
+                  <div><strong>Гранат</strong> — даёт силу и выносливость.</div>
+                  <div><strong>Чёрный оникс</strong> — защищает от негативных воздействий.</div>
+                  <div><strong>Турмалин</strong> — помогает трансформировать энергию и раскрывать потенциал.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <div class="stone-box">
+              <div class="stone-pic">♐</div>
+              <div class="stone-content">
+                <div class="tag">Стрелец</div>
+                <h3>Стрелец</h3>
+                <div class="stone-list">
+                  <div><strong>Сапфир</strong> — способствует мудрости и духовному росту.</div>
+                  <div><strong>Аметист</strong> — углубляет философское мышление.</div>
+                  <div><strong>Бирюза</strong> — помогает в путешествиях и новых начинаниях.</div>
+                  <div><strong>Хризолит</strong> — привлекает удачу и процветание.</div>
+                  <div><strong>Топаз</strong> — усиливает оптимизм и веру в себя.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <div class="stone-box">
+              <div class="stone-pic">♑</div>
+              <div class="stone-content">
+                <div class="tag">Козерог</div>
+                <h3>Козерог</h3>
+                <div class="stone-list">
+                  <div><strong>Оникс</strong> — даёт дисциплину и целеустремлённость.</div>
+                  <div><strong>Гранат</strong> — поддерживает мотивацию и энергию.</div>
+                  <div><strong>Раухтопаз</strong> — помогает в медитации и самопознании.</div>
+                  <div><strong>Обсидиан</strong> — защищает от негативных влияний.</div>
+                  <div><strong>Чёрный агат</strong> — укрепляет волю и решимость.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <div class="stone-box">
+              <div class="stone-pic">♒</div>
+              <div class="stone-content">
+                <div class="tag">Водолей</div>
+                <h3>Водолей</h3>
+                <div class="stone-list">
+                  <div><strong>Аметист</strong> — усиливает оригинальность и интуицию.</div>
+                  <div><strong>Аквамарин</strong> — помогает выражать идеи и общаться.</div>
+                  <div><strong>Лазурит</strong> — способствует инновациям и вдохновению.</div>
+                  <div><strong>Бирюза</strong> — поддерживает независимость и свободу.</div>
+                  <div><strong>Гранат</strong> — заряжает энергией для реализации необычных проектов.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <div class="stone-box">
+              <div class="stone-pic">♓</div>
+              <div class="stone-content">
+                <div class="tag">Рыбы</div>
+                <h3>Рыбы</h3>
+                <div class="stone-list">
+                  <div><strong>Аквамарин</strong> — усиливает интуицию и духовность.</div>
+                  <div><strong>Жемчуг</strong> — помогает сохранять эмоциональную гармонию.</div>
+                  <div><strong>Аметист</strong> — защищает от стресса и иллюзий.</div>
+                  <div><strong>Лунный камень</strong> — раскрывает творческий потенциал.</div>
+                  <div><strong>Лазурит</strong> — способствует духовному росту и ясности видения.</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -1209,7 +1349,7 @@
           </div>
 
           <div class="cta-actions">
-            <a class="btn btn-primary pulse" href="https://t.me/ValentinaGavrilovich" target="_blank" rel="noopener noreferrer">Записаться в Telegram</a>
+            <a class="btn btn-primary" href="https://t.me/ValentinaGavrilovich" target="_blank" rel="noopener noreferrer">Записаться в Telegram</a>
             <a class="btn btn-vk" href="https://vk.com/astronumhub" target="_blank" rel="noopener noreferrer">Записаться в VK</a>
           </div>
         </div>
@@ -1218,7 +1358,7 @@
   </main>
 
   <div class="sticky-contact">
-    <a class="btn btn-primary sticky-btn pulse" href="https://t.me/ValentinaGavrilovich" target="_blank" rel="noopener noreferrer">Telegram</a>
+    <a class="btn btn-primary sticky-btn" href="https://t.me/ValentinaGavrilovich" target="_blank" rel="noopener noreferrer">Telegram</a>
     <a class="btn btn-vk sticky-btn" href="https://vk.com/astronumhub" target="_blank" rel="noopener noreferrer">VK</a>
   </div>
 
