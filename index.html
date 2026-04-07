@@ -3,17 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AstroPotok | Астрология, медитации, мантры и консультации</title>
-  <meta name="description" content="Астрология простыми словами: консультации, медитации, мантры, упайи для планет, разбор жизненных периодов, отношения, деньги и энергия." />
+  <title>AstroPotok | Астрология, мантры, камни и консультации</title>
+  <meta name="description" content="Астрология простыми словами: консультации, мантры по планетам, медитации, упайи, камни и минералы, отношения, деньги и энергия." />
   <style>
     :root{
       --bg:#06070d;
-      --bg2:#0b0d18;
-      --card:rgba(255,255,255,.06);
-      --line:rgba(255,215,140,.18);
       --gold:#d8ad4b;
       --gold2:#f2d58e;
-      --gold3:#fff3cf;
       --text:#ffffff;
       --muted:#d5d5de;
       --vk:#4C75A3;
@@ -47,11 +43,8 @@
       z-index:2;
     }
 
-    section[id]{
-      scroll-margin-top:110px;
-    }
+    section[id]{scroll-margin-top:110px}
 
-    /* STAR SKY */
     .starfield{
       position:fixed;
       inset:0;
@@ -115,7 +108,6 @@
       100%{transform:translateY(-24px) translateX(12px) scale(1.08)}
     }
 
-    /* TOPBAR */
     .topbar{
       position:sticky;
       top:0;
@@ -202,7 +194,6 @@
       font-family: Arial, sans-serif;
     }
 
-    /* BUTTONS */
     .btn{
       display:inline-flex;
       align-items:center;
@@ -254,7 +245,6 @@
       50%{box-shadow:0 0 22px rgba(216,173,75,.22), 0 0 38px rgba(242,213,142,.10)}
     }
 
-    /* HERO */
     .hero{
       position:relative;
       padding:92px 0 74px;
@@ -272,7 +262,7 @@
       gap:8px;
       padding:8px 14px;
       border-radius:999px;
-      border:1px solid var(--line);
+      border:1px solid rgba(255,215,140,.18);
       background:rgba(255,215,140,.06);
       color:var(--gold2);
       font-size:13px;
@@ -294,7 +284,6 @@
       font-size:21px;
       max-width:760px;
     }
-
     .hero-cta{
       display:flex;
       gap:12px;
@@ -324,6 +313,10 @@
       box-shadow:0 10px 24px rgba(0,0,0,.22);
       font-family: Arial, sans-serif;
       font-weight:700;
+      cursor:pointer;
+      appearance:none;
+      -webkit-appearance:none;
+      outline:none;
     }
     .point-link:hover{
       transform:translateY(-4px);
@@ -431,9 +424,7 @@
       object-position:center 18%;
       display:block;
     }
-    .avatar-text{
-      text-align:left;
-    }
+    .avatar-text{text-align:left}
     .avatar-text h3{
       margin:0 0 8px;
       font-size:22px;
@@ -462,36 +453,32 @@
       font-family: Arial, sans-serif;
     }
 
-    .grid-3,.grid-2,.faq-grid,.pricing,.contact-grid,.med-grid,.planet-grid,.consult-grid,.player-grid{
+    .grid-3,.player-grid,.stones-grid,.contact-grid,.pricing{
       display:grid;
       gap:18px;
     }
     .grid-3{grid-template-columns:repeat(3,1fr)}
-    .grid-2{grid-template-columns:repeat(2,1fr)}
-    .faq-grid{grid-template-columns:repeat(2,1fr)}
-    .pricing{grid-template-columns:1fr 1fr}
+    .player-grid{grid-template-columns:repeat(3,1fr)}
+    .stones-grid{grid-template-columns:repeat(3,1fr)}
     .contact-grid{grid-template-columns:1fr 1fr}
-    .med-grid{grid-template-columns:repeat(3,1fr)}
-    .planet-grid{grid-template-columns:repeat(3,1fr)}
-    .consult-grid{grid-template-columns:repeat(3,1fr)}
-    .player-grid{grid-template-columns:repeat(2,1fr)}
+    .pricing{grid-template-columns:1fr 1fr}
 
-    .card,.about-box,.cta-box,.contact-card{
+    .card,.contact-card,.cta-box{
       position:relative;
       padding:24px;
       border-radius:var(--radius);
-      background:var(--card);
+      background:rgba(255,255,255,.06);
       border:1px solid rgba(255,255,255,.07);
       box-shadow:var(--shadow);
       overflow:hidden;
       transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease;
     }
-    .card:hover,.about-box:hover,.contact-card:hover{
+    .card:hover,.contact-card:hover{
       transform:translateY(-4px);
       border-color:rgba(242,213,142,.18);
       box-shadow:0 18px 40px rgba(0,0,0,.45),0 0 22px rgba(216,173,75,.10);
     }
-    .card-glow::before,.about-box::before,.contact-card::before{
+    .card::before,.contact-card::before{
       content:"";
       position:absolute;
       inset:-1px;
@@ -517,19 +504,96 @@
       z-index:1;
     }
 
-    .card h3,.about-box h3,.contact-card h3{
+    .card h3,.contact-card h3{
       margin:0 0 10px;
       font-size:22px;
       position:relative;
       z-index:1;
     }
-    .card p,.about-box p,.contact-card p{
+    .card p,.contact-card p{
       margin:0;
       color:var(--muted);
       font-size:16px;
       position:relative;
       z-index:1;
       font-family: Arial, sans-serif;
+    }
+
+    .tag{
+      display:inline-block;
+      padding:7px 12px;
+      border-radius:999px;
+      background:rgba(255,215,100,.08);
+      border:1px solid rgba(255,215,100,.14);
+      color:var(--gold2);
+      font-size:12px;
+      margin-bottom:12px;
+      position:relative;
+      z-index:1;
+      font-family: Arial, sans-serif;
+      font-weight:700;
+    }
+
+    .audio-wrap{
+      margin-top:16px;
+      position:relative;
+      z-index:1;
+    }
+    audio{
+      width:100%;
+      border-radius:14px;
+    }
+
+    .visual{
+      width:100%;
+      aspect-ratio:16/9;
+      border-radius:18px;
+      margin-bottom:14px;
+      position:relative;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:0 10px 24px rgba(0,0,0,.28);
+      background:
+        radial-gradient(circle at 25% 25%, rgba(242,213,142,.28), transparent 30%),
+        radial-gradient(circle at 75% 35%, rgba(145,110,255,.24), transparent 28%),
+        radial-gradient(circle at 55% 80%, rgba(255,119,201,.18), transparent 26%),
+        linear-gradient(180deg, rgba(20,18,37,.95), rgba(10,10,20,.98));
+    }
+    .visual::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 20% 40%, rgba(255,255,255,.10) 0 1px, transparent 2px),
+        radial-gradient(circle at 70% 20%, rgba(255,255,255,.10) 0 1px, transparent 2px),
+        radial-gradient(circle at 82% 70%, rgba(255,255,255,.10) 0 1px, transparent 2px),
+        radial-gradient(circle at 35% 78%, rgba(255,255,255,.08) 0 1px, transparent 2px);
+      background-size:120px 120px, 160px 160px, 180px 180px, 140px 140px;
+      opacity:.9;
+    }
+    .visual span{
+      position:absolute;
+      left:18px;
+      bottom:16px;
+      z-index:2;
+      color:#fff7dc;
+      font-size:20px;
+      font-weight:700;
+      text-shadow:0 2px 14px rgba(0,0,0,.55);
+    }
+
+    .stone-img{
+      width:100%;
+      aspect-ratio:4/3;
+      object-fit:cover;
+      border-radius:18px;
+      display:block;
+      margin-bottom:14px;
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow:0 10px 24px rgba(0,0,0,.28);
+      position:relative;
+      z-index:1;
+      background:rgba(255,255,255,.04);
     }
 
     .featured{
@@ -566,82 +630,6 @@
       position:absolute;
       left:0;
       color:var(--gold2);
-    }
-    .urgency{
-      margin-top:16px;
-      padding:12px 14px;
-      border-radius:14px;
-      background:rgba(255,215,100,.08);
-      border:1px solid rgba(255,215,100,.14);
-      color:#f3e2aa;
-      font-size:14px;
-      font-weight:700;
-      position:relative;
-      z-index:1;
-      font-family: Arial, sans-serif;
-    }
-
-    .tag{
-      display:inline-block;
-      padding:7px 12px;
-      border-radius:999px;
-      background:rgba(255,215,100,.08);
-      border:1px solid rgba(255,215,100,.14);
-      color:var(--gold2);
-      font-size:12px;
-      margin-bottom:12px;
-      position:relative;
-      z-index:1;
-      font-family: Arial, sans-serif;
-      font-weight:700;
-    }
-
-    .accordion{
-      margin-top:16px;
-      position:relative;
-      z-index:1;
-      font-family: Arial, sans-serif;
-    }
-    .accordion-btn{
-      width:100%;
-      padding:12px 14px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.08);
-      background:rgba(255,255,255,.04);
-      color:#fff;
-      cursor:pointer;
-      text-align:left;
-      font-weight:700;
-      transition:.25s;
-      font-family: Arial, sans-serif;
-    }
-    .accordion-btn:hover{
-      border-color:rgba(242,213,142,.20);
-      box-shadow:0 0 14px rgba(216,173,75,.10);
-    }
-    .accordion-content{
-      margin-top:10px;
-      padding:14px;
-      border-radius:14px;
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.06);
-      color:var(--muted);
-      display:none;
-      font-size:15px;
-      line-height:1.65;
-    }
-    .accordion-content.open{
-      display:block;
-    }
-
-    .audio-wrap{
-      margin-top:16px;
-      position:relative;
-      z-index:1;
-    }
-    audio{
-      width:100%;
-      border-radius:14px;
     }
 
     .cta-box{
@@ -732,7 +720,7 @@
     }
 
     @media (max-width:1024px){
-      .hero-grid,.grid-3,.grid-2,.faq-grid,.pricing,.contact-grid,.med-grid,.planet-grid,.consult-grid,.player-grid,.cta-box,.hero-points{
+      .hero-grid,.grid-3,.player-grid,.stones-grid,.contact-grid,.pricing,.cta-box,.hero-points{
         grid-template-columns:1fr;
       }
       .nav{display:none}
@@ -770,15 +758,14 @@
         <div class="logo-mark"></div>
         <div class="logo-text">
           <div class="logo-title">Astro<span>Potok</span></div>
-          <div class="logo-sub">Астрология • Медитации • Мантры</div>
+          <div class="logo-sub">Астрология • Мантры • Камни</div>
         </div>
       </div>
 
       <nav class="nav">
         <a href="#interactive">Мини-разбор</a>
-        <a href="#meditations">Медитации</a>
         <a href="#mantras">Мантры</a>
-        <a href="#upayi">Упайи</a>
+        <a href="#stones">Камни</a>
         <a href="#contacts">Запись</a>
       </nav>
 
@@ -798,7 +785,7 @@
           <p>
             Астрология помогает увидеть глубинные причины событий: почему не идут деньги,
             не складываются отношения, не хватает сил или будто всё идёт не по твоему пути.
-            Здесь ты найдёшь не только объяснение, но и <strong>медитации, мантры, упайи и запись на консультацию</strong>.
+            Здесь ты найдёшь не только объяснение, но и <strong>мантры, камни и запись на консультацию</strong>.
           </p>
 
           <div class="hero-cta">
@@ -808,11 +795,11 @@
           </div>
 
           <div class="hero-points">
-            <a class="point-link" href="#money">Деньги</a>
-            <a class="point-link" href="#love">Отношения</a>
-            <a class="point-link" href="#energy">Энергия</a>
-            <a class="point-link" href="#meditations">Медитации</a>
-            <a class="point-link" href="#mantras">Мантры</a>
+            <button type="button" class="point-link" onclick="scrollToSection('money')">Деньги</button>
+            <button type="button" class="point-link" onclick="scrollToSection('love')">Отношения</button>
+            <button type="button" class="point-link" onclick="scrollToSection('energy')">Энергия</button>
+            <button type="button" class="point-link" onclick="scrollToSection('mantras')">Мантры</button>
+            <button type="button" class="point-link" onclick="scrollToSection('stones')">Камни</button>
           </div>
         </div>
 
@@ -823,7 +810,7 @@
 
           <div class="avatar-card">
             <div class="avatar-wrap">
-              <img src="./avatar-astropotok.jpg?v=3" alt="Валентина" />
+              <img src="/astro-mir/avatar-astropotok.jpg?v=6" alt="Валентина" />
             </div>
             <div class="avatar-text">
               <h3>Валентина</h3>
@@ -836,8 +823,8 @@
 
           <div class="mock-list">
             <div class="mock-item">🔮 Разбор причин проблем и жизненных блоков</div>
-            <div class="mock-item">🧘 Медитации на деньги, уверенность и очищение</div>
-            <div class="mock-item">🪐 Упайи для планет и рекомендации</div>
+            <div class="mock-item">🎧 Мантры по планетам: любовь, бизнес, здоровье, защита</div>
+            <div class="mock-item">💎 Подбор камней и минералов по запросу</div>
             <div class="mock-item">✨ Запись на личную консультацию</div>
           </div>
         </div>
@@ -852,17 +839,17 @@
         </div>
 
         <div class="grid-3">
-          <div class="card card-glow reveal" onclick="showResult('money')" style="cursor:pointer">
+          <div class="card reveal" onclick="showResult('money')" style="cursor:pointer">
             <div class="icon">💰</div>
             <h3>Нет денег</h3>
             <p>Чувство, что поток закрыт, а усилий много.</p>
           </div>
-          <div class="card card-glow reveal" onclick="showResult('love')" style="cursor:pointer">
+          <div class="card reveal" onclick="showResult('love')" style="cursor:pointer">
             <div class="icon">💔</div>
             <h3>Проблемы в отношениях</h3>
             <p>Повторяются похожие сценарии и внутренние боли.</p>
           </div>
-          <div class="card card-glow reveal" onclick="showResult('energy')" style="cursor:pointer">
+          <div class="card reveal" onclick="showResult('energy')" style="cursor:pointer">
             <div class="icon">⚡</div>
             <h3>Нет энергии</h3>
             <p>Усталость, тревога и ощущение внутренней пустоты.</p>
@@ -888,17 +875,17 @@
           <p>Иногда деньги не идут не потому, что человек мало старается, а потому что внутри много напряжения, страха или сложный период.</p>
         </div>
         <div class="grid-3">
-          <div class="card card-glow reveal">
+          <div class="card reveal">
             <div class="icon">💰</div>
             <h3>Почему не идут деньги</h3>
             <p>Ты можешь много делать, но чувствовать, что результата всё равно недостаточно или всё даётся слишком тяжело.</p>
           </div>
-          <div class="card card-glow reveal">
+          <div class="card reveal">
             <div class="icon">🌕</div>
             <h3>Что может влиять</h3>
             <p>Внутренние страхи, слабая вера в себя, напряжённые периоды и влияние планет.</p>
           </div>
-          <div class="card card-glow reveal">
+          <div class="card reveal">
             <div class="icon">✨</div>
             <h3>Что даёт разбор</h3>
             <p>Понимание, где именно закрывается поток, и какие практики могут помочь мягко его раскрыть.</p>
@@ -914,17 +901,17 @@
           <p>Если отношения не складываются или повторяются похожие болезненные сценарии, это тоже можно рассматривать глубже.</p>
         </div>
         <div class="grid-3">
-          <div class="card card-glow reveal">
+          <div class="card reveal">
             <div class="icon">💔</div>
             <h3>Повторяющиеся истории</h3>
             <p>Ожидание, боль, разочарование, дистанция — и будто один и тот же круг.</p>
           </div>
-          <div class="card card-glow reveal">
+          <div class="card reveal">
             <div class="icon">🌹</div>
             <h3>Влияние Венеры и Луны</h3>
             <p>Эти темы часто связаны с женской энергией, самоценностью, чувствами и внутренней безопасностью.</p>
           </div>
-          <div class="card card-glow reveal">
+          <div class="card reveal">
             <div class="icon">🔮</div>
             <h3>Что даёт консультация</h3>
             <p>Понимание причин, внутренних узлов и рекомендаций, которые помогают проживать тему легче.</p>
@@ -940,105 +927,20 @@
           <p>Усталость, тревога, ощущение пустоты или потери себя — это не всегда “просто период”.</p>
         </div>
         <div class="grid-3">
-          <div class="card card-glow reveal">
+          <div class="card reveal">
             <div class="icon">⚡</div>
             <h3>Нет сил</h3>
             <p>Даже обычные дела требуют слишком много ресурса.</p>
           </div>
-          <div class="card card-glow reveal">
+          <div class="card reveal">
             <div class="icon">🌫</div>
             <h3>Тревога и перегруз</h3>
             <p>Когда ум не выключается, тело устало, а душа будто оторвана от внутренней опоры.</p>
           </div>
-          <div class="card card-glow reveal">
+          <div class="card reveal">
             <div class="icon">🧘</div>
             <h3>Что помогает</h3>
-            <p>Медитации, работа с Луной и понимание того, какой именно период ты проживаешь сейчас.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="meditations">
-      <div class="container">
-        <div class="section-head reveal">
-          <h2>Медитации</h2>
-          <p>Здесь есть текстовые практики и уже встроенные аудио, которые можно слушать прямо на сайте.</p>
-        </div>
-
-        <div class="med-grid">
-          <div class="card card-glow reveal">
-            <div class="tag">Медитация</div>
-            <h3>На деньги</h3>
-            <p>Для работы с ощущением нехватки, внутреннего страха и напряжения вокруг денег.</p>
-            <div class="accordion">
-              <button class="accordion-btn" type="button">Открыть текст медитации</button>
-              <div class="accordion-content">
-                Закрой глаза. Сделай несколько спокойных вдохов. Представь перед собой мягкий золотой поток света.
-                Этот поток наполняет тебя ощущением безопасности, достатка и доверия жизни.
-                Повтори мысленно: “Я разрешаю себе принимать. Я открываюсь денежному потоку. Я достойна изобилия”.
-              </div>
-            </div>
-            <div class="audio-wrap">
-              <audio controls preload="none">
-                <source src="https://upload.wikimedia.org/wikipedia/commons/1/11/Gayatri_mantra.ogg" type="audio/ogg">
-                Ваш браузер не поддерживает аудио.
-              </audio>
-            </div>
-          </div>
-
-          <div class="card card-glow reveal">
-            <div class="tag">Медитация</div>
-            <h3>На уверенность</h3>
-            <p>Помогает вернуть внутреннюю опору, спокойствие и ощущение своей ценности.</p>
-            <div class="accordion">
-              <button class="accordion-btn" type="button">Открыть текст медитации</button>
-              <div class="accordion-content">
-                Представь, что внутри твоего сердца загорается мягкий золотой свет.
-                Этот свет — твоя внутренняя сила. С каждым вдохом он заполняет всё тело.
-                Повтори: “Я имею право быть собой. Я могу опираться на себя. Я выбираю спокойную силу”.
-              </div>
-            </div>
-          </div>
-
-          <div class="card card-glow reveal">
-            <div class="tag">Медитация</div>
-            <h3>На очищение энергии</h3>
-            <p>Для отпускания тяжёлых состояний, старых эмоций и накопленного внутреннего напряжения.</p>
-            <div class="accordion">
-              <button class="accordion-btn" type="button">Открыть текст медитации</button>
-              <div class="accordion-content">
-                Представь поток лунного серебристого света, который мягко проходит сверху вниз через всё тело.
-                Он смывает усталость, тревогу, тяжесть и внутренний шум.
-                Повтори: “Я отпускаю старое. Я очищаюсь. Я возвращаюсь к себе”.
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="player-grid" style="margin-top:18px;">
-          <div class="card card-glow reveal">
-            <div class="tag">Слушать</div>
-            <h3>Гаятри-мантра</h3>
-            <p>Свободно доступная запись, встроенная прямо в сайт.</p>
-            <div class="audio-wrap">
-              <audio controls preload="none">
-                <source src="https://upload.wikimedia.org/wikipedia/commons/2/20/Gayatri_Mantra_as_it_is.ogg" type="audio/ogg">
-                Ваш браузер не поддерживает аудио.
-              </audio>
-            </div>
-          </div>
-
-          <div class="card card-glow reveal">
-            <div class="tag">Слушать</div>
-            <h3>Короткая мантра для спокойствия</h3>
-            <p>Подходит для фона, сосредоточения и мягкой настройки состояния.</p>
-            <div class="audio-wrap">
-              <audio controls preload="none">
-                <source src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Om_Mani_Peme_Hung.vorb.oga" type="audio/ogg">
-                Ваш браузер не поддерживает аудио.
-              </audio>
-            </div>
+            <p>Практики, астрологический разбор, мантры и понимание того, какой именно период ты проживаешь сейчас.</p>
           </div>
         </div>
       </div>
@@ -1047,31 +949,115 @@
     <section id="mantras">
       <div class="container">
         <div class="section-head reveal">
-          <h2>Мантры</h2>
-          <p>Рабочие аудиоварианты, которые можно включать прямо на сайте без перехода в другой сервис.</p>
+          <h2>Мантры по планетам</h2>
+          <p>Отдельный мистический раздел с твоими мантрами. Можно зайти, прочитать описание и сразу нажать «Слушать».</p>
         </div>
 
         <div class="player-grid">
-          <div class="card card-glow reveal">
-            <div class="tag">Мантра</div>
-            <h3>Gayatri Mantra</h3>
-            <p>Для ясности, света, внутренней опоры и более чистого состояния.</p>
+          <div class="card reveal">
+            <div class="visual"><span>Солнце</span></div>
+            <div class="tag">Уверенность • здоровье</div>
+            <h3>Мантра Солнцу</h3>
+            <p>Подходит для усиления внутреннего света, уверенности, энергии, жизненной опоры и здоровья.</p>
             <div class="audio-wrap">
               <audio controls preload="none">
-                <source src="https://upload.wikimedia.org/wikipedia/commons/1/11/Gayatri_mantra.ogg" type="audio/ogg">
-                Ваш браузер не поддерживает аудио.
+                <source src="/astro-mir/%D0%9C%D0%B0%D0%BD%D1%82%D1%80%D0%B0%20%D0%A1%D0%BE%D0%BB%D0%BD%D1%86%D1%83%20-%20%D0%94%D0%BB%D1%8F%20%D1%83%D0%BB%D1%83%D1%87%D1%88%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%B7%D0%B4%D0%BE%D1%80%D0%BE%D0%B2%D1%8C%D1%8F%20%D0%B8%20%D1%83%D0%B2%D0%B5%D1%80%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%B2%20%D1%81%D0%B5%D0%B1%D0%B5.mp3" type="audio/mpeg">
               </audio>
             </div>
           </div>
 
-          <div class="card card-glow reveal">
-            <div class="tag">Мантра</div>
-            <h3>Om Mani Peme Hung</h3>
-            <p>Короткая мантра для внутреннего очищения, мягкости и медитативного состояния.</p>
+          <div class="card reveal">
+            <div class="visual"><span>Луна</span></div>
+            <div class="tag">Спокойствие • эмоции</div>
+            <h3>Мантра Луне</h3>
+            <p>Для мягкости, внутреннего спокойствия, гармонизации эмоций и ощущения внутренней защищённости.</p>
             <div class="audio-wrap">
               <audio controls preload="none">
-                <source src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Om_Mani_Peme_Hung.vorb.oga" type="audio/ogg">
-                Ваш браузер не поддерживает аудио.
+                <source src="/astro-mir/%D0%9C%D0%B0%D0%BD%D1%82%D1%80%D0%B0%20%D0%9B%D1%83%D0%BD%D0%B5%20-%20%D0%9C%D0%B0%D0%BD%D1%82%D1%80%D0%B0%20%D0%9B%D1%83%D0%BD%D1%8B.mp3" type="audio/mpeg">
+              </audio>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <div class="visual"><span>Меркурий</span></div>
+            <div class="tag">Бизнес • обучение • связи</div>
+            <h3>Мантра Меркурию</h3>
+            <p>Для ясности мышления, коммуникации, деловых контактов, обучения и выстраивания полезных связей.</p>
+            <div class="audio-wrap">
+              <audio controls preload="none">
+                <source src="/astro-mir/%D0%9C%D0%B0%D0%BD%D1%82%D1%80%D0%B0%20-%20%D0%9C%D0%B5%D1%80%D0%BA%D1%83%D1%80%D0%B8%D1%8E%20-%20%D0%94%D0%BB%D1%8F%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0%2C%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%2C%20%D0%B2%D1%8B%D1%81%D1%82%D1%80%D0%B0%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F%20%D1%81%D0%B2%D1%8F%D0%B7%D0%B5%D0%B9.mp3" type="audio/mpeg">
+              </audio>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <div class="visual"><span>Венера</span></div>
+            <div class="tag">Любовь • гармония</div>
+            <h3>Мантра Венере</h3>
+            <p>Для привлечения любви, мягкости, красоты, женской энергии и гармонизации сердечной сферы.</p>
+            <div class="audio-wrap">
+              <audio controls preload="none">
+                <source src="/astro-mir/%D0%9C%D0%B0%D0%BD%D1%82%D1%80%D0%B0%20%D0%92%D0%B5%D0%BD%D0%B5%D1%80%D0%B5%20-%20%D0%94%D0%BB%D1%8F%20%D0%BF%D1%80%D0%B8%D0%B2%D0%BB%D0%B5%D1%87%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%BB%D1%8E%D0%B1%D0%B2%D0%B8.mp3" type="audio/mpeg">
+              </audio>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <div class="visual"><span>Марс</span></div>
+            <div class="tag">Сила • действие</div>
+            <h3>Мантра Марсу</h3>
+            <p>Для усиления воли, решительности, энергии, смелости и внутреннего огня на действия.</p>
+            <div class="audio-wrap">
+              <audio controls preload="none">
+                <source src="/astro-mir/%D0%9C%D0%B0%D0%BD%D1%82%D1%80%D0%B0%20%D0%9C%D0%B0%D1%80%D1%81%D1%83%20-%20%D0%9E%D0%BC%20%D0%9D%D0%B0%D0%BC%D0%BE%20%D0%91%D1%85%D0%B0%D0%B3%D0%B0%D0%B2%D0%B0%D1%82%D1%8D%20%D0%9D%D0%B0%D1%80%D0%B0%D1%81%D0%B8%D0%BC%D1%85%D0%B0%D0%B4%D1%8D%D0%B2%D0%B0%D0%B9%D0%B0.mp3" type="audio/mpeg">
+              </audio>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <div class="visual"><span>Сатурн</span></div>
+            <div class="tag">Устойчивость • прохождение трудностей</div>
+            <h3>Мантра Сатурну</h3>
+            <p>Для спокойствия, устойчивости, внутренней зрелости и прохождения тяжёлых жизненных этапов.</p>
+            <div class="audio-wrap">
+              <audio controls preload="none">
+                <source src="/astro-mir/%D0%BC%D0%B0%D0%BD%D1%82%D1%80%D0%B0%20%D0%A1%D0%B0%D1%82%D1%83%D1%80%D0%BD%D1%83%20-%20%D0%9E%D0%BC%20%D0%A8%D0%B0%D0%BD%D1%82%D0%B8%20%D0%A8%D0%B0%D0%BD%D1%82%D0%B8%20%D0%A8%D0%B0%D0%BD%D1%82%D0%B8%20%D0%9E%D0%BC.%20%28%D0%A1%D0%B0%D1%82%D1%83%D1%80%D0%BD%29.mp3" type="audio/mpeg">
+              </audio>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <div class="visual"><span>Раху</span></div>
+            <div class="tag">Туман • страхи • нестабильность</div>
+            <h3>Мантра Раху</h3>
+            <p>Для успокоения сильного внутреннего напряжения, хаоса, страхов и ощущений неустойчивости.</p>
+            <div class="audio-wrap">
+              <audio controls preload="none">
+                <source src="/astro-mir/%D0%9C%D0%B0%D0%BD%D1%82%D1%80%D0%B0%20%D0%94%D0%BB%D1%8F%20%D0%A0%D0%B0%D1%85%D1%83%20-%20%D0%9E%D0%9C%20%D0%A0%D0%90%D0%A5%D0%90%D0%92%D0%95%20%D0%9D%D0%90%D0%9C%D0%90%D0%A5%D0%90%20108%20%D1%80%D0%B0%D0%B7.mp3" type="audio/mpeg">
+              </audio>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <div class="visual"><span>Кету</span></div>
+            <div class="tag">Отпускание • карма • глубина</div>
+            <h3>Мантра Кету</h3>
+            <p>Для отпускания лишнего, работы с кармическими темами и внутреннего очищения.</p>
+            <div class="audio-wrap">
+              <audio controls preload="none">
+                <source src="/astro-mir/%D0%9C%D0%B0%D0%BD%D1%82%D1%80%D0%B0%20%D0%94%D0%BB%D1%8F%20%D0%9A%D0%B5%D1%82%D1%83%20-%20%D0%9E%D0%9C%20%D0%9A%D0%95%D0%A2%D0%90%D0%92%D0%95%20%D0%9D%D0%90%D0%9C%D0%90%D0%A5%D0%90%20108%20%D1%80%D0%B0%D0%B7.mp3" type="audio/mpeg">
+              </audio>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <div class="visual"><span>Маха Мритьюнджая</span></div>
+            <div class="tag">Защита • исцеление • сила духа</div>
+            <h3>Мантра Великого Победителя смерти</h3>
+            <p>Используется как сильная защитная и поддерживающая мантра в тяжёлые периоды и состояния.</p>
+            <div class="audio-wrap">
+              <audio controls preload="none">
+                <source src="/astro-mir/%D0%9C%D0%B0%D0%BD%D1%82%D1%80%D0%B0%20%D0%92%D0%B5%D0%BB%D0%B8%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%9F%D0%BE%D0%B1%D0%B5%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8F%20%D1%81%D0%BC%D0%B5%D1%80%D1%82%D0%B8%20-%20%D0%A1%D0%BF%D0%B0%D1%81%D0%B0%D0%B5%D1%82%20%D0%BE%D1%82%20%D0%B2%D1%81%D0%B5%D1%85%20%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D0%B5%D0%B9%20%D0%B8%20%D1%81%D0%BC%D0%B5%D1%80%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D1%85%20%D0%B1%D0%BE%D0%BB%D0%B5%D0%B7%D0%BD%D0%B5%D0%B9.mp3" type="audio/mpeg">
               </audio>
             </div>
           </div>
@@ -1079,90 +1065,68 @@
       </div>
     </section>
 
-    <section id="upayi">
+    <section id="stones">
       <div class="container">
         <div class="section-head reveal">
-          <h2>Упайи для планет</h2>
-          <p>Здесь уже есть готовые краткие рекомендации, которые можно читать и использовать как ориентир.</p>
+          <h2>Камни и минералы</h2>
+          <p>Некоторым людям хочется не только понять свой период, но и подобрать для себя поддерживающий камень — для любви, спокойствия, уверенности, денег или защиты.</p>
         </div>
 
-        <div class="planet-grid">
-          <div class="card card-glow reveal">
-            <div class="tag">Луна</div>
-            <h3>Спокойствие и эмоции</h3>
-            <p>Если много тревоги, эмоциональной нестабильности, внутренней незащищённости.</p>
-            <div class="accordion">
-              <button class="accordion-btn" type="button">Открыть упайю</button>
-              <div class="accordion-content">
-                Больше бережности к себе, режим сна, контакт с водой, светлая пища, медитации на спокойствие,
-                благодарность матери или женской линии рода, уменьшение внутренней спешки и перегруза.
-              </div>
-            </div>
+        <div class="stones-grid">
+          <div class="card reveal">
+            <img class="stone-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/AdulaireSuisse2.jpg" alt="Лунный камень">
+            <div class="tag">Луна / эмоции</div>
+            <h3>Лунный камень</h3>
+            <p>Подходит тем, кто хочет больше мягкости, спокойствия, женской энергии и внутреннего принятия. Часто выбирают для эмоционального баланса и тонкой интуиции.</p>
           </div>
 
-          <div class="card card-glow reveal">
-            <div class="tag">Венера</div>
-            <h3>Любовь и гармония</h3>
-            <p>Когда хочется наладить отношения, почувствовать ценность себя и раскрыть мягкую энергию.</p>
-            <div class="accordion">
-              <button class="accordion-btn" type="button">Открыть упайю</button>
-              <div class="accordion-content">
-                Забота о красоте пространства и тела, музыка, эстетика, мягкость в общении,
-                маленькие радости без чувства вины, отказ от грубости к себе.
-              </div>
-            </div>
+          <div class="card reveal">
+            <img class="stone-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Rose_quartz_%28079%29.jpg" alt="Розовый кварц">
+            <div class="tag">Любовь / Венера</div>
+            <h3>Розовый кварц</h3>
+            <p>Ассоциируется с любовью, нежностью, исцелением сердца и темой самоценности. Хорош для тех, кто хочет мягче проживать чувства и отношения.</p>
           </div>
 
-          <div class="card card-glow reveal">
-            <div class="tag">Сатурн</div>
-            <h3>Выход из тяжёлого периода</h3>
-            <p>Если всё идёт медленно, жизнь давит, кажется, что вокруг ограничения и тяжесть.</p>
-            <div class="accordion">
-              <button class="accordion-btn" type="button">Открыть упайю</button>
-              <div class="accordion-content">
-                Дисциплина без насилия, уважение к времени, помощь старшим, спокойное выполнение обязанностей,
-                терпение, внутреннее взросление, отказ от самоуничтожающих мыслей и суеты.
-              </div>
-            </div>
+          <div class="card reveal">
+            <img class="stone-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Schorl%20-%20black%20tourmaline.JPG" alt="Чёрный турмалин">
+            <div class="tag">Защита / Сатурн</div>
+            <h3>Чёрный турмалин</h3>
+            <p>Часто выбирают для ощущения защиты, заземления и снижения внутреннего хаоса. Подходит в периоды тяжести, тревоги и внешнего давления.</p>
           </div>
 
-          <div class="card card-glow reveal">
-            <div class="tag">Юпитер</div>
-            <h3>Рост и благополучие</h3>
-            <p>Для усиления мудрости, доверия жизни, благословений, возможностей и достатка.</p>
-            <div class="accordion">
-              <button class="accordion-btn" type="button">Открыть упайю</button>
-              <div class="accordion-content">
-                Изучение духовных знаний, благодарность учителям, щедрость, честность,
-                развитие внутренней мудрости и доверия к жизни.
-              </div>
-            </div>
+          <div class="card reveal">
+            <img class="stone-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Citrine-crystals.jpg" alt="Цитрин">
+            <div class="tag">Деньги / изобилие</div>
+            <h3>Цитрин</h3>
+            <p>Связан с темой уверенности, материального потока, проявленности и ощущения “я могу”. Часто его выбирают для усиления денежного намерения.</p>
           </div>
 
-          <div class="card card-glow reveal">
-            <div class="tag">Марс</div>
-            <h3>Сила и действие</h3>
-            <p>Если не хватает воли, решительности, энергии на движение и умения защищать границы.</p>
-            <div class="accordion">
-              <button class="accordion-btn" type="button">Открыть упайю</button>
-              <div class="accordion-content">
-                Физическая активность, честность в желаниях, тренировка воли, умение говорить “нет”,
-                экологичное проявление силы, движение и решительность без агрессии.
-              </div>
-            </div>
+          <div class="card reveal">
+            <img class="stone-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Rough%20Red%20Garnet%20Gemstone.jpg" alt="Гранат">
+            <div class="tag">Сила / Марс</div>
+            <h3>Гранат</h3>
+            <p>Подходит тем, кому не хватает энергии, решительности и внутреннего огня. Может ассоциироваться с волей, действием и смелостью.</p>
           </div>
 
-          <div class="card card-glow reveal">
-            <div class="tag">Индивидуально</div>
-            <h3>Подбор по карте</h3>
-            <p>На консультации можно подобрать рекомендации под твою личную ситуацию и активные периоды.</p>
-            <div class="accordion">
-              <button class="accordion-btn" type="button">Открыть пояснение</button>
-              <div class="accordion-content">
-                Общие рекомендации полезны как ориентир, но самый сильный эффект даёт индивидуальный подбор под карту,
-                жизненный период и конкретный запрос: деньги, отношения, состояние, энергия или путь.
-              </div>
-            </div>
+          <div class="card reveal">
+            <img class="stone-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Amethyst%20crystal.jpg" alt="Аметист">
+            <div class="tag">Мудрость / Юпитер</div>
+            <h3>Аметист</h3>
+            <p>Камень для спокойствия ума, духовной глубины, внутренней ясности и интуитивного понимания. Подходит для медитаций и внутренней работы.</p>
+          </div>
+        </div>
+
+        <div class="card featured reveal" style="margin-top:18px;">
+          <div class="tag">Индивидуально</div>
+          <h3>Как понять, какой камень подходит именно тебе?</h3>
+          <p style="font-family: Arial, sans-serif; color: var(--muted);">
+            Общие рекомендации могут откликаться, но самый точный выбор лучше делать по состоянию человека,
+            его запросу и астрологическим показателям. На консультации можно посмотреть,
+            какой камень лучше подойдёт именно под твою тему: деньги, отношения, спокойствие, защита или энергия.
+          </p>
+          <div class="contact-actions" style="margin-top:18px;">
+            <a class="btn btn-primary" href="https://t.me/ValentinaGavrilovich" target="_blank" rel="noopener noreferrer">Подобрать камень</a>
+            <a class="btn btn-vk" href="https://vk.com/astronumhub" target="_blank" rel="noopener noreferrer">Написать в VK</a>
           </div>
         </div>
       </div>
@@ -1203,7 +1167,7 @@
         </div>
 
         <div class="pricing">
-          <div class="card card-glow reveal">
+          <div class="card reveal">
             <div class="tag">Старт</div>
             <h3>Мини-разбор</h3>
             <div class="price">от 2 000 ₽</div>
@@ -1224,11 +1188,10 @@
             <div class="list">
               <div>Разбор жизненной ситуации</div>
               <div>Причины внутренних и внешних сложностей</div>
-              <div>Практики, упайи, рекомендации</div>
+              <div>Практики, мантры, рекомендации</div>
               <div>Запись через Telegram или VK</div>
             </div>
             <a class="btn btn-primary" href="https://t.me/ValentinaGavrilovich" target="_blank" rel="noopener noreferrer">Записаться</a>
-            <div class="urgency">Если внутри есть отклик — лучше не откладывать. Обычно такие решения чувствуются сразу.</div>
           </div>
         </div>
       </div>
@@ -1261,12 +1224,11 @@
 
   <footer class="footer">
     <div class="container">
-      AstroPotok • Астрология, медитации, мантры и консультации • Telegram: @ValentinaGavrilovich • VK: astronumhub
+      AstroPotok • Астрология, мантры, камни и консультации • Telegram: @ValentinaGavrilovich • VK: astronumhub
     </div>
   </footer>
 
   <script>
-    // stars
     const field = document.getElementById('starfield');
     const count = 120;
     for (let i = 0; i < count; i++) {
@@ -1279,7 +1241,6 @@
       field.appendChild(s);
     }
 
-    // reveal
     const items = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -1288,15 +1249,6 @@
     }, { threshold: 0.12 });
     items.forEach(item => observer.observe(item));
 
-    // accordion
-    document.querySelectorAll('.accordion-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const content = btn.nextElementSibling;
-        content.classList.toggle('open');
-      });
-    });
-
-    // mini interactive
     function showResult(type){
       const box = document.getElementById('interactive-result');
       const title = document.getElementById('result-title');
@@ -1318,6 +1270,13 @@
       box.style.display = 'block';
       box.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
+
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
   </script>
 </body>
-</html>
+</html> 
