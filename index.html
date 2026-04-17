@@ -7,9 +7,6 @@
   <meta name="description" content="Астрология простыми словами: мантры по планетам, камни по знакам зодиака, консультации, разбор отношений, денег и энергии." />
   <style>
     :root{
-      --bg:#06070d;
-      --card:rgba(255,255,255,.06);
-      --card-2:rgba(255,255,255,.08);
       --gold:#d8ad4b;
       --gold2:#f2d58e;
       --text:#ffffff;
@@ -27,10 +24,11 @@
       margin:0;
       color:var(--text);
       background:
-        radial-gradient(circle at 10% 15%, rgba(216,173,75,.08), transparent 18%),
-        radial-gradient(circle at 85% 10%, rgba(145,110,255,.08), transparent 18%),
-        radial-gradient(circle at 78% 75%, rgba(255,119,201,.08), transparent 18%),
-        linear-gradient(180deg, #070811 0%, #05060b 100%);
+        radial-gradient(circle at 10% 15%, rgba(168, 85, 247, .16), transparent 20%),
+        radial-gradient(circle at 85% 10%, rgba(139, 92, 246, .16), transparent 22%),
+        radial-gradient(circle at 78% 75%, rgba(217, 70, 239, .13), transparent 20%),
+        radial-gradient(circle at 30% 60%, rgba(216,173,75,.08), transparent 20%),
+        linear-gradient(180deg, #120b22 0%, #090612 45%, #07050d 100%);
       line-height:1.6;
       overflow-x:hidden;
       font-family: Georgia, "Times New Roman", serif;
@@ -79,30 +77,30 @@
 
     .nebula{
       position:fixed;
-      width:380px;
-      height:380px;
+      width:420px;
+      height:420px;
       border-radius:50%;
-      filter:blur(70px);
-      opacity:.35;
+      filter:blur(80px);
+      opacity:.38;
       z-index:0;
       pointer-events:none;
-      animation:floatNebula 10s ease-in-out infinite alternate;
+      animation:floatNebula 11s ease-in-out infinite alternate;
     }
     .nebula.n1{
-      top:6%;
-      left:5%;
-      background:radial-gradient(circle, rgba(216,173,75,.35), transparent 60%);
+      top:4%;
+      left:2%;
+      background:radial-gradient(circle, rgba(168,85,247,.42), transparent 60%);
     }
     .nebula.n2{
-      top:18%;
-      right:8%;
-      background:radial-gradient(circle, rgba(145,110,255,.28), transparent 60%);
-      animation-duration:12s;
+      top:14%;
+      right:6%;
+      background:radial-gradient(circle, rgba(217,70,239,.28), transparent 60%);
+      animation-duration:13s;
     }
     .nebula.n3{
       bottom:8%;
       right:18%;
-      background:radial-gradient(circle, rgba(255,119,201,.20), transparent 60%);
+      background:radial-gradient(circle, rgba(139,92,246,.28), transparent 60%);
       animation-duration:14s;
     }
     @keyframes floatNebula{
@@ -115,7 +113,7 @@
       top:0;
       z-index:50;
       backdrop-filter:blur(14px);
-      background:rgba(8,9,16,.64);
+      background:rgba(15,10,24,.66);
       border-bottom:1px solid rgba(255,255,255,.06);
     }
     .topbar-inner{
@@ -139,11 +137,11 @@
       position:relative;
       background:
         radial-gradient(circle at 30% 30%, rgba(255,255,255,.18), transparent 30%),
-        linear-gradient(135deg, rgba(216,173,75,.28), rgba(145,110,255,.10));
+        linear-gradient(135deg, rgba(216,173,75,.28), rgba(168,85,247,.18));
       border:1px solid rgba(242,213,142,.22);
       box-shadow:
         0 0 0 1px rgba(255,255,255,.03) inset,
-        0 0 24px rgba(216,173,75,.16);
+        0 0 24px rgba(168,85,247,.16);
       flex:0 0 auto;
     }
     .logo-mark::before,
@@ -168,7 +166,7 @@
     .logo-title span{color:var(--gold2)}
     .logo-sub{
       font-size:11px;
-      color:#b8bdd0;
+      color:#c1bdd4;
       letter-spacing:.20em;
       text-transform:uppercase;
       margin-top:4px;
@@ -310,15 +308,11 @@
       box-shadow:0 10px 24px rgba(0,0,0,.22);
       font-family: Arial, sans-serif;
       font-weight:700;
-      cursor:pointer;
-      appearance:none;
-      -webkit-appearance:none;
-      outline:none;
     }
     .point-link:hover{
       transform:translateY(-4px);
       border-color:rgba(242,213,142,.24);
-      box-shadow:0 16px 30px rgba(0,0,0,.30), 0 0 18px rgba(216,173,75,.12);
+      box-shadow:0 16px 30px rgba(0,0,0,.30), 0 0 18px rgba(168,85,247,.18);
       color:#fff6de;
     }
 
@@ -337,7 +331,7 @@
       inset:0;
       background:
         radial-gradient(circle at 20% 20%, rgba(242,213,142,.16), transparent 26%),
-        radial-gradient(circle at 80% 80%, rgba(145,110,255,.10), transparent 28%);
+        radial-gradient(circle at 80% 80%, rgba(168,85,247,.16), transparent 28%);
       pointer-events:none;
     }
     .mini-label{
@@ -461,14 +455,14 @@
     .card:hover,.contact-card:hover{
       transform:translateY(-4px);
       border-color:rgba(242,213,142,.18);
-      box-shadow:0 18px 40px rgba(0,0,0,.45),0 0 22px rgba(216,173,75,.10);
+      box-shadow:0 18px 40px rgba(0,0,0,.45),0 0 22px rgba(168,85,247,.16);
     }
     .card::before,.contact-card::before{
       content:"";
       position:absolute;
       inset:-1px;
       border-radius:inherit;
-      background:linear-gradient(135deg, rgba(242,213,142,.24), transparent 30%, transparent 70%, rgba(145,110,255,.14));
+      background:linear-gradient(135deg, rgba(242,213,142,.24), transparent 30%, transparent 70%, rgba(168,85,247,.18));
       opacity:.65;
       pointer-events:none;
     }
@@ -538,23 +532,6 @@
       overflow:hidden;
       border:1px solid rgba(255,255,255,.08);
       box-shadow:0 10px 24px rgba(0,0,0,.28);
-      background:
-        radial-gradient(circle at 25% 25%, rgba(242,213,142,.28), transparent 30%),
-        radial-gradient(circle at 75% 35%, rgba(145,110,255,.24), transparent 28%),
-        radial-gradient(circle at 55% 80%, rgba(255,119,201,.18), transparent 26%),
-        linear-gradient(180deg, rgba(20,18,37,.95), rgba(10,10,20,.98));
-    }
-    .visual::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(circle at 20% 40%, rgba(255,255,255,.10) 0 1px, transparent 2px),
-        radial-gradient(circle at 70% 20%, rgba(255,255,255,.10) 0 1px, transparent 2px),
-        radial-gradient(circle at 82% 70%, rgba(255,255,255,.10) 0 1px, transparent 2px),
-        radial-gradient(circle at 35% 78%, rgba(255,255,255,.08) 0 1px, transparent 2px);
-      background-size:120px 120px, 160px 160px, 180px 180px, 140px 140px;
-      opacity:.9;
     }
     .visual span{
       position:absolute;
@@ -565,6 +542,73 @@
       font-size:20px;
       font-weight:700;
       text-shadow:0 2px 14px rgba(0,0,0,.55);
+    }
+
+    .planet-sun{
+      background:
+        radial-gradient(circle at 50% 45%, rgba(255,200,70,.70), transparent 18%),
+        radial-gradient(circle at 50% 45%, rgba(255,150,0,.25), transparent 36%),
+        linear-gradient(180deg, #3b1d05, #120b07);
+    }
+    .planet-moon{
+      background:
+        radial-gradient(circle at 50% 42%, rgba(225,230,255,.55), transparent 18%),
+        radial-gradient(circle at 72% 30%, rgba(255,255,255,.10) 0 2px, transparent 3px),
+        radial-gradient(circle at 35% 68%, rgba(255,255,255,.08) 0 1px, transparent 2px),
+        linear-gradient(180deg, #1b2345, #090d1d);
+    }
+    .planet-mercury{
+      background:
+        radial-gradient(circle at 40% 40%, rgba(123,211,255,.30), transparent 22%),
+        radial-gradient(circle at 70% 70%, rgba(255,255,255,.12), transparent 18%),
+        linear-gradient(135deg, #163043, #0c111c);
+    }
+    .planet-venus{
+      background:
+        radial-gradient(circle at 50% 45%, rgba(255,182,208,.38), transparent 22%),
+        radial-gradient(circle at 75% 20%, rgba(255,255,255,.10), transparent 16%),
+        linear-gradient(135deg, #4a1832, #180d19);
+    }
+    .planet-mars{
+      background:
+        radial-gradient(circle at 50% 45%, rgba(255,90,90,.42), transparent 22%),
+        radial-gradient(circle at 30% 70%, rgba(255,180,120,.10), transparent 18%),
+        linear-gradient(135deg, #451313, #190c0d);
+    }
+    .planet-saturn{
+      background:
+        radial-gradient(circle at 50% 45%, rgba(182,169,140,.22), transparent 18%),
+        linear-gradient(135deg, #2a2535, #120f17);
+    }
+    .planet-saturn::before{
+      content:"";
+      position:absolute;
+      width:140px;
+      height:36px;
+      border:3px solid rgba(210,190,150,.35);
+      border-radius:50%;
+      left:50%;
+      top:46%;
+      transform:translate(-50%,-50%) rotate(-12deg);
+      z-index:1;
+    }
+    .planet-rahu{
+      background:
+        radial-gradient(circle at 50% 45%, rgba(88, 58, 180, .38), transparent 22%),
+        radial-gradient(circle at 65% 25%, rgba(255,255,255,.08), transparent 16%),
+        linear-gradient(135deg, #180f32, #08060f);
+    }
+    .planet-ketu{
+      background:
+        radial-gradient(circle at 50% 45%, rgba(120, 220, 255, .20), transparent 22%),
+        radial-gradient(circle at 35% 25%, rgba(255,255,255,.08), transparent 16%),
+        linear-gradient(135deg, #112433, #070c12);
+    }
+    .planet-maha{
+      background:
+        radial-gradient(circle at 50% 45%, rgba(212,175,55,.20), transparent 20%),
+        radial-gradient(circle at 50% 45%, rgba(255,255,255,.08) 0 2px, transparent 3px),
+        linear-gradient(135deg, #24152f, #0c0812);
     }
 
     .stone-box{
@@ -582,7 +626,7 @@
       background:
         radial-gradient(circle at 30% 30%, rgba(255,255,255,.28), transparent 30%),
         radial-gradient(circle at 70% 75%, rgba(242,213,142,.22), transparent 28%),
-        linear-gradient(135deg, rgba(41,36,64,.95), rgba(16,14,28,.98));
+        linear-gradient(135deg, rgba(56,35,92,.95), rgba(16,14,28,.98));
       border:1px solid rgba(255,255,255,.08);
       box-shadow:0 10px 24px rgba(0,0,0,.28);
       display:flex;
@@ -651,7 +695,7 @@
       align-items:center;
       padding:30px;
       border-radius:30px;
-      background:linear-gradient(135deg, rgba(216,173,75,.16), rgba(145,110,255,.08));
+      background:linear-gradient(135deg, rgba(216,173,75,.16), rgba(168,85,247,.10));
       border:1px solid rgba(242,213,142,.22);
     }
     .cta-box::before{
@@ -785,7 +829,7 @@
 
       <div class="header-actions">
         <a class="btn btn-secondary" href="https://vk.com/astronumhub" target="_blank" rel="noopener noreferrer">VK</a>
-        <a class="btn btn-primary pulse" href="https://t.me/ValentinaGavrilovich" target="_blank" rel="noopener noreferrer">Telegram</a>
+        <a class="btn btn-primary" href="https://t.me/ValentinaGavrilovich" target="_blank" rel="noopener noreferrer">Telegram</a>
       </div>
     </div>
   </header>
@@ -809,11 +853,11 @@
           </div>
 
           <div class="hero-points">
-            <button type="button" class="point-link" onclick="scrollToSection('money')">Деньги</button>
-            <button type="button" class="point-link" onclick="scrollToSection('love')">Отношения</button>
-            <button type="button" class="point-link" onclick="scrollToSection('energy')">Энергия</button>
-            <button type="button" class="point-link" onclick="scrollToSection('mantras')">Мантры</button>
-            <button type="button" class="point-link" onclick="scrollToSection('stones')">Камни</button>
+            <a class="point-link" href="#money">Деньги</a>
+            <a class="point-link" href="#love">Отношения</a>
+            <a class="point-link" href="#energy">Энергия</a>
+            <a class="point-link" href="#mantras">Мантры</a>
+            <a class="point-link" href="#stones">Камни</a>
           </div>
         </div>
 
@@ -964,12 +1008,12 @@
       <div class="container">
         <div class="section-head reveal">
           <h2>Мантры по планетам</h2>
-          <p>Красивые мистические карточки: проваливаешься в атмосферу, читаешь описание и сразу можешь слушать.</p>
+          <p>Красивые мистические карточки с образами планет и кнопкой слушать.</p>
         </div>
 
         <div class="player-grid">
           <div class="card reveal">
-            <div class="visual"><span>Солнце</span></div>
+            <div class="visual planet-sun"><span>Солнце</span></div>
             <div class="tag">Уверенность • здоровье</div>
             <h3>Мантра Солнцу</h3>
             <p>Для усиления внутреннего света, уверенности, жизненной опоры и здоровья.</p>
@@ -977,7 +1021,7 @@
           </div>
 
           <div class="card reveal">
-            <div class="visual"><span>Луна</span></div>
+            <div class="visual planet-moon"><span>Луна</span></div>
             <div class="tag">Спокойствие • эмоции</div>
             <h3>Мантра Луне</h3>
             <p>Для мягкости, внутреннего спокойствия, гармонизации эмоций и ощущения внутренней защищённости.</p>
@@ -985,7 +1029,7 @@
           </div>
 
           <div class="card reveal">
-            <div class="visual"><span>Меркурий</span></div>
+            <div class="visual planet-mercury"><span>Меркурий</span></div>
             <div class="tag">Бизнес • обучение • связи</div>
             <h3>Мантра Меркурию</h3>
             <p>Для ясности мышления, коммуникации, деловых контактов, обучения и выстраивания полезных связей.</p>
@@ -993,7 +1037,7 @@
           </div>
 
           <div class="card reveal">
-            <div class="visual"><span>Венера</span></div>
+            <div class="visual planet-venus"><span>Венера</span></div>
             <div class="tag">Любовь • гармония</div>
             <h3>Мантра Венере</h3>
             <p>Для привлечения любви, мягкости, красоты, женской энергии и гармонизации сердечной сферы.</p>
@@ -1001,7 +1045,7 @@
           </div>
 
           <div class="card reveal">
-            <div class="visual"><span>Марс</span></div>
+            <div class="visual planet-mars"><span>Марс</span></div>
             <div class="tag">Сила • действие</div>
             <h3>Мантра Марсу</h3>
             <p>Для усиления воли, решительности, энергии, смелости и внутреннего огня на действия.</p>
@@ -1009,7 +1053,7 @@
           </div>
 
           <div class="card reveal">
-            <div class="visual"><span>Сатурн</span></div>
+            <div class="visual planet-saturn"><span>Сатурн</span></div>
             <div class="tag">Устойчивость • трудности</div>
             <h3>Мантра Сатурну</h3>
             <p>Для спокойствия, устойчивости, внутренней зрелости и прохождения тяжёлых этапов.</p>
@@ -1017,7 +1061,7 @@
           </div>
 
           <div class="card reveal">
-            <div class="visual"><span>Раху</span></div>
+            <div class="visual planet-rahu"><span>Раху</span></div>
             <div class="tag">Туман • страхи • хаос</div>
             <h3>Мантра Раху</h3>
             <p>Для успокоения сильного внутреннего напряжения, страхов и ощущения неустойчивости.</p>
@@ -1025,7 +1069,7 @@
           </div>
 
           <div class="card reveal">
-            <div class="visual"><span>Кету</span></div>
+            <div class="visual planet-ketu"><span>Кету</span></div>
             <div class="tag">Отпускание • глубина</div>
             <h3>Мантра Кету</h3>
             <p>Для отпускания лишнего, работы с кармическими темами и внутреннего очищения.</p>
@@ -1033,7 +1077,7 @@
           </div>
 
           <div class="card reveal">
-            <div class="visual"><span>Маха Мритьюнджая</span></div>
+            <div class="visual planet-maha"><span>Маха Мритьюнджая</span></div>
             <div class="tag">Защита • исцеление</div>
             <h3>Мантра Великого Победителя смерти</h3>
             <p>Сильная защитная и поддерживающая мантра в тяжёлые периоды и состояния.</p>
@@ -1047,213 +1091,33 @@
       <div class="container">
         <div class="section-head reveal">
           <h2>Камни по знакам зодиака</h2>
-          <p>Ниже — подборка камней и их качеств для каждого знака. Я оформила это нативно и красиво, как ты просила.</p>
+          <p>Ниже — подборка камней и их качеств для каждого знака.</p>
         </div>
 
         <div class="stones-grid">
-          <div class="card reveal">
-            <div class="stone-box">
-              <div class="stone-pic">♈</div>
-              <div class="stone-content">
-                <div class="tag">Овен</div>
-                <h3>Овен</h3>
-                <div class="stone-list">
-                  <div><strong>Алмаз</strong> — придаёт уверенность и решительность.</div>
-                  <div><strong>Рубин</strong> — усиливает лидерские качества и жизненную энергию.</div>
-                  <div><strong>Гранат</strong> — помогает сохранять активность и энтузиазм.</div>
-                  <div><strong>Аметист</strong> — смягчает вспыльчивость и импульсивность.</div>
-                  <div><strong>Тигровый глаз</strong> — даёт защиту от негатива и повышает концентрацию.</div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="card reveal"><div class="stone-box"><div class="stone-pic">♈</div><div class="stone-content"><div class="tag">Овен</div><h3>Овен</h3><div class="stone-list"><div><strong>Алмаз</strong> — придаёт уверенность и решительность.</div><div><strong>Рубин</strong> — усиливает лидерские качества и жизненную энергию.</div><div><strong>Гранат</strong> — помогает сохранять активность и энтузиазм.</div><div><strong>Аметист</strong> — смягчает вспыльчивость и импульсивность.</div><div><strong>Тигровый глаз</strong> — даёт защиту от негативных воздействий и повышает концентрацию.</div></div></div></div></div>
 
-          <div class="card reveal">
-            <div class="stone-box">
-              <div class="stone-pic">♉</div>
-              <div class="stone-content">
-                <div class="tag">Телец</div>
-                <h3>Телец</h3>
-                <div class="stone-list">
-                  <div><strong>Изумруд</strong> — способствует финансовому благополучию и стабильности.</div>
-                  <div><strong>Бирюза</strong> — оберегает от стресса и помогает сохранять гармонию.</div>
-                  <div><strong>Розовый кварц</strong> — усиливает способность любить и быть любимым.</div>
-                  <div><strong>Малахит</strong> — защищает от негативных энергий и поддерживает здоровье.</div>
-                  <div><strong>Агат</strong> — даёт устойчивость и заземление.</div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="card reveal"><div class="stone-box"><div class="stone-pic">♉</div><div class="stone-content"><div class="tag">Телец</div><h3>Телец</h3><div class="stone-list"><div><strong>Изумруд</strong> — способствует финансовому благополучию и стабильности.</div><div><strong>Бирюза</strong> — оберегает от стресса и помогает сохранять гармонию.</div><div><strong>Розовый кварц</strong> — усиливает способность любить и быть любимым.</div><div><strong>Малахит</strong> — защищает от негативных энергий и поддерживает здоровье.</div><div><strong>Агат</strong> — даёт устойчивость и заземление.</div></div></div></div></div>
 
-          <div class="card reveal">
-            <div class="stone-box">
-              <div class="stone-pic">♊</div>
-              <div class="stone-content">
-                <div class="tag">Близнецы</div>
-                <h3>Близнецы</h3>
-                <div class="stone-list">
-                  <div><strong>Агат</strong> — улучшает коммуникативные навыки и память.</div>
-                  <div><strong>Аметист</strong> — помогает упорядочить мысли и снизить тревожность.</div>
-                  <div><strong>Топаз</strong> — способствует ясности ума и красноречию.</div>
-                  <div><strong>Сердолик</strong> — заряжает энергией для новых начинаний.</div>
-                  <div><strong>Цитрин</strong> — привлекает удачу в делах и усиливает оптимизм.</div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="card reveal"><div class="stone-box"><div class="stone-pic">♊</div><div class="stone-content"><div class="tag">Близнецы</div><h3>Близнецы</h3><div class="stone-list"><div><strong>Агат</strong> — улучшает коммуникативные навыки и память.</div><div><strong>Аметист</strong> — помогает упорядочить мысли и снизить тревожность.</div><div><strong>Топаз</strong> — способствует ясности ума и красноречию.</div><div><strong>Сердолик</strong> — заряжает энергией для новых начинаний.</div><div><strong>Цитрин</strong> — привлекает удачу в делах и усиливает оптимизм.</div></div></div></div></div>
 
-          <div class="card reveal">
-            <div class="stone-box">
-              <div class="stone-pic">♋</div>
-              <div class="stone-content">
-                <div class="tag">Рак</div>
-                <h3>Рак</h3>
-                <div class="stone-list">
-                  <div><strong>Жемчуг</strong> — усиливает интуицию и эмоциональную чувствительность.</div>
-                  <div><strong>Лунный камень</strong> — помогает справляться с перепадами настроения.</div>
-                  <div><strong>Аквамарин</strong> — успокаивает и защищает от стресса.</div>
-                  <div><strong>Халцедон</strong> — поддерживает эмоциональную стабильность.</div>
-                  <div><strong>Родонит</strong> — помогает раскрыть творческий потенциал.</div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="card reveal"><div class="stone-box"><div class="stone-pic">♋</div><div class="stone-content"><div class="tag">Рак</div><h3>Рак</h3><div class="stone-list"><div><strong>Жемчуг</strong> — усиливает интуицию и эмоциональную чувствительность.</div><div><strong>Лунный камень</strong> — помогает справляться с перепадами настроения.</div><div><strong>Аквамарин</strong> — успокаивает и защищает от стресса.</div><div><strong>Халцедон</strong> — поддерживает эмоциональную стабильность.</div><div><strong>Родонит</strong> — помогает раскрыть творческий потенциал.</div></div></div></div></div>
 
-          <div class="card reveal">
-            <div class="stone-box">
-              <div class="stone-pic">♌</div>
-              <div class="stone-content">
-                <div class="tag">Лев</div>
-                <h3>Лев</h3>
-                <div class="stone-list">
-                  <div><strong>Рубин</strong> — подчёркивает харизму и лидерские качества.</div>
-                  <div><strong>Янтарь</strong> — даёт энергию и оптимизм.</div>
-                  <div><strong>Цитрин</strong> — привлекает успех и финансовое благополучие.</div>
-                  <div><strong>Гранат</strong> — усиливает страсть и мотивацию.</div>
-                  <div><strong>Сердолик</strong> — помогает сохранять бодрость духа и уверенность.</div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="card reveal"><div class="stone-box"><div class="stone-pic">♌</div><div class="stone-content"><div class="tag">Лев</div><h3>Лев</h3><div class="stone-list"><div><strong>Рубин</strong> — подчёркивает харизму и лидерские качества.</div><div><strong>Янтарь</strong> — даёт энергию и оптимизм.</div><div><strong>Цитрин</strong> — привлекает успех и финансовое благополучие.</div><div><strong>Гранат</strong> — усиливает страсть и мотивацию.</div><div><strong>Сердолик</strong> — помогает сохранять бодрость духа и уверенность.</div></div></div></div></div>
 
-          <div class="card reveal">
-            <div class="stone-box">
-              <div class="stone-pic">♍</div>
-              <div class="stone-content">
-                <div class="tag">Дева</div>
-                <h3>Дева</h3>
-                <div class="stone-list">
-                  <div><strong>Нефрит</strong> — способствует здоровью и долголетию.</div>
-                  <div><strong>Яшма</strong> — даёт стабильность и практичность.</div>
-                  <div><strong>Сердолик</strong> — помогает в реализации планов.</div>
-                  <div><strong>Хризолит</strong> — успокаивает и гармонизирует.</div>
-                  <div><strong>Агат</strong> — поддерживает организованность и внимание к деталям.</div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="card reveal"><div class="stone-box"><div class="stone-pic">♍</div><div class="stone-content"><div class="tag">Дева</div><h3>Дева</h3><div class="stone-list"><div><strong>Нефрит</strong> — способствует здоровью и долголетию.</div><div><strong>Яшма</strong> — даёт стабильность и практичность.</div><div><strong>Сердолик</strong> — помогает в реализации планов.</div><div><strong>Хризолит</strong> — успокаивает и гармонизирует.</div><div><strong>Агат</strong> — поддерживает организованность и внимание к деталям.</div></div></div></div></div>
 
-          <div class="card reveal">
-            <div class="stone-box">
-              <div class="stone-pic">♎</div>
-              <div class="stone-content">
-                <div class="tag">Весы</div>
-                <h3>Весы</h3>
-                <div class="stone-list">
-                  <div><strong>Опал</strong> — помогает находить баланс и гармонию.</div>
-                  <div><strong>Лазурит</strong> — усиливает дипломатичность и интуицию.</div>
-                  <div><strong>Турмалин</strong> — защищает от негатива и заряжает энергией.</div>
-                  <div><strong>Аквамарин</strong> — способствует честности и ясности мышления.</div>
-                  <div><strong>Розовый кварц</strong> — укрепляет отношения и притягивает любовь.</div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="card reveal"><div class="stone-box"><div class="stone-pic">♎</div><div class="stone-content"><div class="tag">Весы</div><h3>Весы</h3><div class="stone-list"><div><strong>Опал</strong> — помогает находить баланс и гармонию.</div><div><strong>Лазурит</strong> — усиливает дипломатичность и интуицию.</div><div><strong>Турмалин</strong> — защищает от негатива и заряжает энергией.</div><div><strong>Аквамарин</strong> — способствует честности и ясности мышления.</div><div><strong>Розовый кварц</strong> — укрепляет отношения и притягивает любовь.</div></div></div></div></div>
 
-          <div class="card reveal">
-            <div class="stone-box">
-              <div class="stone-pic">♏</div>
-              <div class="stone-content">
-                <div class="tag">Скорпион</div>
-                <h3>Скорпион</h3>
-                <div class="stone-list">
-                  <div><strong>Топаз</strong> — помогает контролировать эмоции и усиливает интуицию.</div>
-                  <div><strong>Аметист</strong> — очищает энергетику и снижает стресс.</div>
-                  <div><strong>Гранат</strong> — даёт силу и выносливость.</div>
-                  <div><strong>Чёрный оникс</strong> — защищает от негативных воздействий.</div>
-                  <div><strong>Турмалин</strong> — помогает трансформировать энергию и раскрывать потенциал.</div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="card reveal"><div class="stone-box"><div class="stone-pic">♏</div><div class="stone-content"><div class="tag">Скорпион</div><h3>Скорпион</h3><div class="stone-list"><div><strong>Топаз</strong> — помогает контролировать эмоции и усиливает интуицию.</div><div><strong>Аметист</strong> — очищает энергетику и снижает стресс.</div><div><strong>Гранат</strong> — даёт силу и выносливость.</div><div><strong>Чёрный оникс</strong> — защищает от негативных воздействий.</div><div><strong>Турмалин</strong> — помогает трансформировать энергию и раскрывать потенциал.</div></div></div></div></div>
 
-          <div class="card reveal">
-            <div class="stone-box">
-              <div class="stone-pic">♐</div>
-              <div class="stone-content">
-                <div class="tag">Стрелец</div>
-                <h3>Стрелец</h3>
-                <div class="stone-list">
-                  <div><strong>Сапфир</strong> — способствует мудрости и духовному росту.</div>
-                  <div><strong>Аметист</strong> — углубляет философское мышление.</div>
-                  <div><strong>Бирюза</strong> — помогает в путешествиях и новых начинаниях.</div>
-                  <div><strong>Хризолит</strong> — привлекает удачу и процветание.</div>
-                  <div><strong>Топаз</strong> — усиливает оптимизм и веру в себя.</div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="card reveal"><div class="stone-box"><div class="stone-pic">♐</div><div class="stone-content"><div class="tag">Стрелец</div><h3>Стрелец</h3><div class="stone-list"><div><strong>Сапфир</strong> — способствует мудрости и духовному росту.</div><div><strong>Аметист</strong> — углубляет философское мышление.</div><div><strong>Бирюза</strong> — помогает в путешествиях и новых начинаниях.</div><div><strong>Хризолит</strong> — привлекает удачу и процветание.</div><div><strong>Топаз</strong> — усиливает оптимизм и веру в себя.</div></div></div></div></div>
 
-          <div class="card reveal">
-            <div class="stone-box">
-              <div class="stone-pic">♑</div>
-              <div class="stone-content">
-                <div class="tag">Козерог</div>
-                <h3>Козерог</h3>
-                <div class="stone-list">
-                  <div><strong>Оникс</strong> — даёт дисциплину и целеустремлённость.</div>
-                  <div><strong>Гранат</strong> — поддерживает мотивацию и энергию.</div>
-                  <div><strong>Раухтопаз</strong> — помогает в медитации и самопознании.</div>
-                  <div><strong>Обсидиан</strong> — защищает от негативных влияний.</div>
-                  <div><strong>Чёрный агат</strong> — укрепляет волю и решимость.</div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="card reveal"><div class="stone-box"><div class="stone-pic">♑</div><div class="stone-content"><div class="tag">Козерог</div><h3>Козерог</h3><div class="stone-list"><div><strong>Оникс</strong> — даёт дисциплину и целеустремлённость.</div><div><strong>Гранат</strong> — поддерживает мотивацию и энергию.</div><div><strong>Раухтопаз</strong> — помогает в медитации и самопознании.</div><div><strong>Обсидиан</strong> — защищает от негативных влияний.</div><div><strong>Чёрный агат</strong> — укрепляет волю и решимость.</div></div></div></div></div>
 
-          <div class="card reveal">
-            <div class="stone-box">
-              <div class="stone-pic">♒</div>
-              <div class="stone-content">
-                <div class="tag">Водолей</div>
-                <h3>Водолей</h3>
-                <div class="stone-list">
-                  <div><strong>Аметист</strong> — усиливает оригинальность и интуицию.</div>
-                  <div><strong>Аквамарин</strong> — помогает выражать идеи и общаться.</div>
-                  <div><strong>Лазурит</strong> — способствует инновациям и вдохновению.</div>
-                  <div><strong>Бирюза</strong> — поддерживает независимость и свободу.</div>
-                  <div><strong>Гранат</strong> — заряжает энергией для реализации необычных проектов.</div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="card reveal"><div class="stone-box"><div class="stone-pic">♒</div><div class="stone-content"><div class="tag">Водолей</div><h3>Водолей</h3><div class="stone-list"><div><strong>Аметист</strong> — усиливает оригинальность и интуицию.</div><div><strong>Аквамарин</strong> — помогает выражать идеи и общаться.</div><div><strong>Лазурит</strong> — способствует инновациям и вдохновению.</div><div><strong>Бирюза</strong> — поддерживает независимость и свободу.</div><div><strong>Гранат</strong> — заряжает энергией для реализации необычных проектов.</div></div></div></div></div>
 
-          <div class="card reveal">
-            <div class="stone-box">
-              <div class="stone-pic">♓</div>
-              <div class="stone-content">
-                <div class="tag">Рыбы</div>
-                <h3>Рыбы</h3>
-                <div class="stone-list">
-                  <div><strong>Аквамарин</strong> — усиливает интуицию и духовность.</div>
-                  <div><strong>Жемчуг</strong> — помогает сохранять эмоциональную гармонию.</div>
-                  <div><strong>Аметист</strong> — защищает от стресса и иллюзий.</div>
-                  <div><strong>Лунный камень</strong> — раскрывает творческий потенциал.</div>
-                  <div><strong>Лазурит</strong> — способствует духовному росту и ясности видения.</div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="card reveal"><div class="stone-box"><div class="stone-pic">♓</div><div class="stone-content"><div class="tag">Рыбы</div><h3>Рыбы</h3><div class="stone-list"><div><strong>Аквамарин</strong> — усиливает интуицию и духовность.</div><div><strong>Жемчуг</strong> — помогает сохранять эмоциональную гармонию.</div><div><strong>Аметист</strong> — защищает от стресса и иллюзий.</div><div><strong>Лунный камень</strong> — раскрывает творческий потенциал.</div><div><strong>Лазурит</strong> — способствует духовному росту и ясности видения.</div></div></div></div></div>
         </div>
 
         <div class="card featured reveal" style="margin-top:18px;">
@@ -1284,7 +1148,7 @@
             <h3>Написать в Telegram</h3>
             <p>Подходит, если хочешь быстро задать вопрос, записаться или уточнить формат консультации.</p>
             <div class="contact-actions">
-              <a class="btn btn-primary pulse" href="https://t.me/ValentinaGavrilovich" target="_blank" rel="noopener noreferrer">Открыть Telegram</a>
+              <a class="btn btn-primary" href="https://t.me/ValentinaGavrilovich" target="_blank" rel="noopener noreferrer">Открыть Telegram</a>
             </div>
           </div>
 
@@ -1332,25 +1196,6 @@
               <div>Запись через Telegram или VK</div>
             </div>
             <a class="btn btn-primary" href="https://t.me/ValentinaGavrilovich" target="_blank" rel="noopener noreferrer">Записаться</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="final-cta">
-      <div class="container">
-        <div class="cta-box reveal">
-          <div>
-            <h2>Если внутри есть ощущение, что тебе нужен ответ — не игнорируй это</h2>
-            <p>
-              Иногда одного разговора и одного точного разбора достаточно, чтобы по-другому увидеть свою жизнь,
-              успокоиться и начать двигаться в более правильную сторону.
-            </p>
-          </div>
-
-          <div class="cta-actions">
-            <a class="btn btn-primary" href="https://t.me/ValentinaGavrilovich" target="_blank" rel="noopener noreferrer">Записаться в Telegram</a>
-            <a class="btn btn-vk" href="https://vk.com/astronumhub" target="_blank" rel="noopener noreferrer">Записаться в VK</a>
           </div>
         </div>
       </div>
@@ -1410,13 +1255,6 @@
       box.style.display = 'block';
       box.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
-
-    function scrollToSection(id) {
-      const el = document.getElementById(id);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
   </script>
 </body>
-</html> 
+</html>
