@@ -837,6 +837,63 @@
         width:100%;
       }
     }
+    .mock-list{
+  margin-top:18px;
+  display:grid;
+  gap:12px;
+  position:relative;
+  z-index:5;
+}
+
+.mock-item{
+  padding:14px 16px;
+  border-radius:18px;
+  background:linear-gradient(135deg, rgba(255,255,255,.06), rgba(168,85,247,.10));
+  border:1px solid rgba(255,255,255,.10);
+  color:#f3f3fa;
+  transition:transform .28s ease, box-shadow .28s ease, border-color .28s ease, background .28s ease;
+  font-family: Arial, sans-serif;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 8px 20px rgba(0,0,0,.18);
+}
+
+.mock-item::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg, transparent 0%, rgba(255,255,255,.12) 45%, transparent 100%);
+  transform:translateX(-120%);
+  transition:transform .8s ease;
+  pointer-events:none;
+}
+
+.mock-link{
+  display:block;
+  text-decoration:none;
+  cursor:pointer;
+  animation:softPulseCard 3s ease-in-out infinite;
+}
+
+.mock-link:hover{
+  transform:translateY(-5px) scale(1.01);
+  box-shadow:0 0 24px rgba(168,85,247,.24), 0 0 18px rgba(242,213,142,.12);
+  border-color:rgba(242,213,142,.28);
+  background:linear-gradient(135deg, rgba(255,255,255,.10), rgba(168,85,247,.18));
+}
+
+.mock-link:hover::before{
+  transform:translateX(120%);
+}
+
+@keyframes softPulseCard{
+  0%,100%{
+    box-shadow:0 8px 20px rgba(0,0,0,.18);
+  }
+  50%{
+    box-shadow:0 0 18px rgba(168,85,247,.14), 0 8px 20px rgba(0,0,0,.18);
+  }
+}
   </style>
 </head>
 <body>
